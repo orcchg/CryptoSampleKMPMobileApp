@@ -1,0 +1,5 @@
+build/
+android-convention/build
+kotlin-convention/build/
+plugins/android-jar/build/
+plugins/utility/build/
