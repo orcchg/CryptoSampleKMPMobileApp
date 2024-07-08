@@ -14,7 +14,7 @@ plugins {
 kotlin {
     jvmToolchain(18)
     androidTarget()
-    jvm("desktop")
+    jvm()
 
     wasmJs {
         moduleName = "shared"
@@ -31,7 +31,6 @@ kotlin {
         }
         binaries.executable()
     }
-    wasmWasi()
     
     listOf(
         iosX64(),
