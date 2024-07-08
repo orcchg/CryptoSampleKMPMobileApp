@@ -13,6 +13,7 @@ dependencies {
         exclude(group = "org.jetbrains.kotlin", module = "kotlin-stdlib-jdk8")
     }
     implementation(libs.kt.gradle)
+    implementation(libs.kt.compose.compiler.gradle)
     implementation(files(libs.javaClass.superclass.protectionDomain.codeSource.location))
 
     implementation(project(":kotlin-convention"))

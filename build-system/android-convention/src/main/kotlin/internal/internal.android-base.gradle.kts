@@ -5,6 +5,7 @@ import com.orcchg.crypto.sample.mobileapp.infra.plugin.withVersionCatalogs
 
 plugins {
     id("org.gradle.android.cache-fix")
+    id("org.jetbrains.kotlin.plugin.compose")
     id("internal.android-compose-report")
 }
 

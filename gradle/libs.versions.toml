@@ -152,6 +152,7 @@ kt-core = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "versio
 kt-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "version-kotlin-coroutines" }
 kt-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "version-kotlin-coroutines" }
 kt-gradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "version-kotlin-std" }
+kt-compose-compiler-gradle = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "version-kotlin-std" }
 kt-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "version-kotlin-std" }
 kt-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "version-kotlin-std" }
 kt-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "version-kotlin-std" }
