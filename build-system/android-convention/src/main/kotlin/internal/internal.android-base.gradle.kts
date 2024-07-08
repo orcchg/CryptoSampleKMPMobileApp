@@ -87,9 +87,5 @@ withVersionCatalogs {
             shaders = false
             viewBinding = false
         }
-
-        composeOptions {
-            kotlinCompilerExtensionVersion = versions.version.jetpack.compose.compiler.get()
-        }
     }
 }

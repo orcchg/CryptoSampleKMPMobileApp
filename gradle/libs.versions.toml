@@ -44,7 +44,6 @@ version-huawei-safety = "6.7.0.303"
 version-jacoco = "0.8.8"
 version-jetpack-activity = "1.9.0"
 version-jetpack-compose-bom = "2024.06.00"
-version-jetpack-compose-compiler = "2.0.0" # kotlin-std
 version-jetpack-compose-multiplatform = "1.6.11"
 version-jetpack-compose-navigation = "2.7.7"
 version-jetpack-datastore = "1.1.1"
