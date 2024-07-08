@@ -8,7 +8,7 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.compose.multiplatform)
     alias(libs.plugins.compose.multiplatform.compiler)
-    alias(libs.plugins.sqldelight.gradle)
+//    alias(libs.plugins.sqldelight.gradle)
 }
 
 kotlin {
