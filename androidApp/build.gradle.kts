@@ -5,22 +5,12 @@ plugins {
 }
 
 android {
+    namespace = "com.orcchg.crypto.sample.mobileapp"
     defaultConfig {
         applicationId = "com.orcchg.crypto.sample.mobileapp"
         versionCode = 1
         versionName = "1.0"
-        resourceConfigurations += setOf("en")
     }
-    buildTypes {
-        getByName("release") {
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-            signingConfig = signingConfigs.getByName("debug")
-        }
-    }
-    namespace = "com.orcchg.crypto.sample.mobileapp"
 }
 
 dependencies {

@@ -8,6 +8,7 @@ plugins {
     id("com.android.application")
     id("kotlin-android")
     id("internal.kotlin-base")
+    id("internal.android-sourcesets")
     id("internal.android-base")
 }
 
@@ -24,6 +25,11 @@ withVersionCatalogs {
         buildTypes {
             getByName("release") {
                 isShrinkResources = true
+                proguardFiles(
+                    getDefaultProguardFile("proguard-android-optimize.txt"),
+                    "${rootDir}/proguard-rules.pro",
+                    "proguard-rules.pro"
+                )
             }
             getByName("debug") {
                 applicationIdSuffix = ".debug"
