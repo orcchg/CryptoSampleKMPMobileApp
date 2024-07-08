@@ -11,26 +11,26 @@ version-android-billing = "7.0.0"
 version-android-cachefix = "3.0.1"
 version-android-database-sqlcipher = "4.5.4"
 version-android-gradle = "8.2.2" # 8.4.1 has manifest clash issue with google ads/play
-version-android-junit = "1.1.5"
-version-android-test = "1.5.0"
-version-android-test-runner = "1.5.2"
-version-androidx-appcompat = "1.6.1"
+version-android-junit = "1.2.1"
+version-android-test = "1.6.1"
+version-android-test-runner = "1.6.1"
+version-androidx-appcompat = "1.7.0"
 version-androidx-core = "1.13.1"
 version-androidx-customview-pooling = "1.0.0"
-version-androidx-lifecycle = "2.8.0"
-version-androidx-lifecycle-viewmodel-compose = "2.8.0"
+version-androidx-lifecycle = "2.8.3"
+version-androidx-lifecycle-viewmodel-compose = "2.8.3"
 version-androidx-splash = "1.0.1"
 version-androidx-sqlite = "2.4.0"
 version-androidx-startup = "1.1.1"
 version-androidx-work = "2.9.0"
 version-coil = "2.6.0"
 version-debug-ktlint = "1.3.0"
-version-firebase-bom = "33.0.0"
+version-firebase-bom = "33.1.1"
 version-firebase-crashlytics-gradle = "3.0.1"
 version-google-play-integrity = "1.3.0"
 version-google-play-review = "2.0.1"
-version-google-play-services-ads = "23.1.0"
-version-google-play-services-games = "20.0.0"
+version-google-play-services-ads = "23.2.0"
+version-google-play-services-games = "20.1.1"
 version-google-play-update = "2.1.0"
 version-google-services = "4.4.1"
 version-hamcrest = "2.2"
@@ -43,15 +43,16 @@ version-huawei-game = "6.12.0.300"
 version-huawei-safety = "6.7.0.303"
 version-jacoco = "0.8.8"
 version-jetpack-activity = "1.9.0"
-version-jetpack-compose-bom = "2024.05.00"
+version-jetpack-compose-bom = "2024.06.00"
 version-jetpack-compose-compiler = "1.5.14"
+version-jetpack-compose-multiplatform = "1.6.11"
 version-jetpack-compose-navigation = "2.7.7"
 version-jetpack-datastore = "1.1.1"
 version-jetpack-fragment = "1.7.1"
 version-junit = "4.13.2"
 version-koin-bom = "3.5.6"
 version-koin-kmm = "3.5.6"
-version-kotlin-std = "1.9.24"
+version-kotlin-std = "2.0.0"
 version-kotlin-coroutines = "1.8.1"
 version-kotlin-serialization = "1.6.3"
 version-ktor = "2.3.11"
@@ -66,14 +67,17 @@ version-square-okio = "3.9.0"
 version-threetenabp = "1.4.7"
 version-threetenbp = "1.6.9"
 version-turbine = "1.1.0"
+runtimeDesktop = "1.6.8"
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "version-android-gradle" }
 androidLibrary = { id = "com.android.library", version.ref = "version-android-gradle" }
-kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "version-kotlin-std" }
-kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "version-kotlin-std" }
+compose-multiplatform = { id = "org.jetbrains.compose", version.ref = "version-jetpack-compose-multiplatform" }
+compose-multiplatform-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "version-kotlin-std" }
 firebase-crashlytics-gradle = { id = "com.google.firebase:firebase-crashlytics-gradle", version.ref = "version-firebase-crashlytics-gradle" }
 google-services-gradle = { id = "com.google.gms:google-services", version.ref = "version-google-services" }
+kt-android = { id = "org.jetbrains.kotlin.android", version.ref = "version-kotlin-std" }
+kt-cocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "version-kotlin-std" }
 kt-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "version-kotlin-std" }
 sqldelight-gradle = { id = "app.cash.sqldelight", version.ref = "version-sqldelight" }
 
@@ -181,3 +185,4 @@ test-android-runner = { module = "androidx.test:runner", version.ref = "version-
 threetenabp-android = { module = "com.jakewharton.threetenabp:threetenabp", version.ref = "version-threetenabp" }
 threetenbp = { module = "org.threeten:threetenbp", version.ref = "version-threetenbp" }
 turbine = { module = "app.cash.turbine:turbine", version.ref = "version-turbine" }
+androidx-runtime-desktop = { group = "androidx.compose.runtime", name = "runtime-desktop", version.ref = "runtimeDesktop" }
