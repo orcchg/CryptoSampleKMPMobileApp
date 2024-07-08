@@ -2,6 +2,8 @@ import com.orcchg.crypto.sample.mobileapp.infra.plugin.withVersionCatalogs
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.withType
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 
 plugins {
     id("convention.static-analysis")
@@ -14,9 +16,10 @@ withVersionCatalogs {
     }
 
     tasks.withType<KotlinCompile>().configureEach {
-        kotlinOptions {
-            jvmTarget = versions.javaVersion.get()
+        compilerOptions {
             allWarningsAsErrors = false
+            jvmTarget = JvmTarget.fromTarget(versions.javaVersion.get())
+            languageVersion = KotlinVersion.KOTLIN_2_0
         }
     }
 
