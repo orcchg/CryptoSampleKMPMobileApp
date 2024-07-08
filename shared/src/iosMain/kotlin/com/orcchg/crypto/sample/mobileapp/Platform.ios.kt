@@ -1,4 +1,4 @@
-package com.orcchg
+package com.orcchg.crypto.sample.mobileapp
 
 import platform.UIKit.UIDevice
 

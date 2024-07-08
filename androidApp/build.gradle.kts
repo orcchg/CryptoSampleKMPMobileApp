@@ -1,5 +1,7 @@
 plugins {
     id("convention.android-app")
+    alias(libs.plugins.compose.multiplatform)
+    alias(libs.plugins.compose.multiplatform.compiler)
 }
 
 android {
@@ -22,8 +24,6 @@ android {
 }
 
 dependencies {
-    implementation(project(":android-coin-details"))
-    implementation(project(":android-coin-listview"))
     implementation(projects.shared)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui.core)

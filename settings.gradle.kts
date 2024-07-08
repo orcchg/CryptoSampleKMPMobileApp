@@ -1,4 +1,6 @@
+enableFeaturePreview("STABLE_CONFIGURATION_CACHE")
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
 pluginManagement {
     repositories {
         google()
@@ -19,11 +21,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "CryptoSampleKMPMobileApp"
 
-enableFeaturePreview("STABLE_CONFIGURATION_CACHE")
-
 includeBuild("build-system")
 
-include(":android-coin-details")
-include(":android-coin-listview")
 include(":androidApp")
 include(":shared")

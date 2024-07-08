@@ -44,7 +44,7 @@ version-huawei-safety = "6.7.0.303"
 version-jacoco = "0.8.8"
 version-jetpack-activity = "1.9.0"
 version-jetpack-compose-bom = "2024.06.00"
-version-jetpack-compose-compiler = "1.5.14"
+version-jetpack-compose-compiler = "2.0.0" # kotlin-std
 version-jetpack-compose-multiplatform = "1.6.11"
 version-jetpack-compose-navigation = "2.7.7"
 version-jetpack-datastore = "1.1.1"
@@ -155,6 +155,7 @@ kt-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test",
 kt-gradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "version-kotlin-std" }
 kt-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "version-kotlin-std" }
 kt-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "version-kotlin-std" }
+kt-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "version-kotlin-std" }
 kt-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "version-kotlin-serialization" }
 ktor-client-android = { module = "io.ktor:ktor-client-android", version.ref = "version-ktor" }
 ktor-client-auth = { module = "io.ktor:ktor-client-auth", version.ref = "version-ktor" }
