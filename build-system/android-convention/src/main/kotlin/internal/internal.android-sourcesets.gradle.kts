@@ -20,11 +20,6 @@ configure<BaseExtension> {
             java.srcDir("src/androidTest/java")
             java.srcDir("src/androidTest/kotlin")
         }
-//        named("androidUnitTest").configure {
-//            assets.srcDir("src/androidUnitTest/assets")
-//            java.srcDir("src/androidUnitTest/java")
-//            java.srcDir("src/androidUnitTest/kotlin")
-//        }
         named("test").configure {
             java.srcDir("src/test/java")
             java.srcDir("src/test/kotlin")
