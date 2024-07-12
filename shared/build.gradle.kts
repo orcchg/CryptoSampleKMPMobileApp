@@ -5,6 +5,7 @@ import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
 
 plugins {
     id("convention.android-lib-kmm")
+    kotlin("plugin.serialization") version "2.0.0"
     alias(libs.plugins.compose.multiplatform)
     alias(libs.plugins.compose.multiplatform.compiler)
 //    alias(libs.plugins.sqldelight.gradle)
@@ -50,6 +51,8 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
+            implementation(libs.coil.compose)
+            implementation(libs.kt.serialization)
         }
         commonTest.dependencies {
             implementation(libs.kt.test)

@@ -10,6 +10,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import com.orcchg.crypto.sample.mobileapp.presentation.theme.AppTypography
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
@@ -19,7 +20,7 @@ import cryptosamplekmpmobileapp.shared.generated.resources.compose_multiplatform
 @Composable
 @Preview
 fun App() {
-    MaterialTheme {
+    MaterialTheme(typography = AppTypography()) {
         var showContent by remember { mutableStateOf(false) }
         Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
             Button(onClick = { showContent = !showContent }) {
