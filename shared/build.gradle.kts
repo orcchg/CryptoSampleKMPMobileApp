@@ -100,7 +100,7 @@ android {
     }
     buildTypes {
         getByName("release") {
-            buildConfigField("String", "BACKEND_URL", "\"https://crypto-sample.herokuapp.com\"")
+            buildConfigField("String", "BACKEND_URL", "\"${project.findProperty("custom.backendUrl") ?: "http://localhost:8080"}\"")
             buildConfigField("String", "BUILD_TYPE_SUFFIX", "\".release\"")
         }
         getByName("debug") {
