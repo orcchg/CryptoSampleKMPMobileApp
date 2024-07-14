@@ -29,21 +29,22 @@ import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import coil3.compose.LocalPlatformContext
 import coil3.request.ImageRequest
-import com.orcchg.crypto.sample.mobileapp.domain.model.Coin
-import com.orcchg.crypto.sample.mobileapp.domain.model.DeltaSign
+import com.orcchg.crypto.sample.mobileapp.presentation.model.CoinVo
+import com.orcchg.crypto.sample.mobileapp.presentation.model.DeltaSign
 import com.orcchg.crypto.sample.mobileapp.presentation.theme.Colors
 import cryptosamplekmpmobileapp.shared.generated.resources.Res
 import cryptosamplekmpmobileapp.shared.generated.resources.ic_fav_off
 import cryptosamplekmpmobileapp.shared.generated.resources.ic_fav_on
 import org.jetbrains.compose.resources.vectorResource
+import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
-fun CoinListItem(
-    coin: Coin,
+internal fun CoinListItem(
+    coin: CoinVo,
     positionInList: Int = 0,
     modifier: Modifier = Modifier,
-    onClick: (coin: Coin) -> Unit = {},
-    onFavouriteClick: (coin: Coin) -> Unit = {}
+    onClick: (coinIndex: Long) -> Unit = {},
+    onFavouriteClick: (coinIndex: Long) -> Unit = {}
 ) {
     val color = if (positionInList % 2 == 0) {
         Colors.surfaceColor
@@ -64,7 +65,7 @@ fun CoinListItem(
             modifier =
             Modifier
                 .wrapContentSize()
-                .clickable { onClick(coin) }
+                .clickable { onClick(coin.index) }
                 .clip(shape = RoundedCornerShape(12.dp)),
             contentAlignment = Alignment.Center,
         ) {
@@ -98,7 +99,7 @@ fun CoinListItem(
                 )
                 Spacer(modifier = Modifier.width(2.dp))
                 IconButton(
-                    onClick = { onFavouriteClick(coin) },
+                    onClick = { onFavouriteClick(coin.index) },
                     modifier = Modifier.size(16.dp),
                 ) {
                     val iconResId = if (coin.isFavourite) {
@@ -147,4 +148,22 @@ fun CoinListItem(
             )
         }
     }
+}
+
+@Preview
+@Composable
+fun CoinListItemPreview() {
+    CoinListItem(
+        coin = CoinVo(
+            index = 0L,
+            name = "Bitcoin",
+            symbol = "BTC",
+            url = "https://bitcoin.org",
+            logoUrl = "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/bitcoin/info/logo.png",
+            price = "$60.345,28",
+            delta = "$1.210,41",
+            deltaSign = DeltaSign.PLUS,
+            isFavourite = true
+        )
+    )
 }

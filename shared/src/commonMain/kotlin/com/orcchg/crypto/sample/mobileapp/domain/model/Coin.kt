@@ -5,11 +5,5 @@ class Coin(
     val name: String,
     val symbol: String,
     val url: String,
-    val logoUrl: String,
-    val price: String,
-    val delta: String,
-    val deltaSign: DeltaSign = DeltaSign.NONE,
-    var isFavourite: Boolean = false
+    val logoUrl: String
 )
-
-enum class DeltaSign { MINUS, PLUS, NONE }
