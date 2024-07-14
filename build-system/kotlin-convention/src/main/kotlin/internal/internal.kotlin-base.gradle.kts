@@ -20,6 +20,7 @@ withVersionCatalogs {
             allWarningsAsErrors = false
             jvmTarget = JvmTarget.fromTarget(versions.javaVersion.get())
             languageVersion = KotlinVersion.KOTLIN_2_0
+            freeCompilerArgs.add("-Xexpect-actual-classes")
         }
     }
 

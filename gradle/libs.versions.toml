@@ -54,7 +54,8 @@ version-koin-kmm = "3.5.6"
 version-kotlin-std = "2.0.0"
 version-kotlin-coroutines = "1.8.1"
 version-kotlin-serialization = "1.6.3"
-version-ktor = "3.0.0-wasm2"
+version-ktor = "2.3.12"
+version-ktor-new = "3.2.0"
 version-lottie-compose = "6.4.0"
 version-mockito = "5.3.1"
 version-mockk = "1.13.11"
@@ -161,12 +162,24 @@ kt-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json"
 ktor-client-android = { module = "io.ktor:ktor-client-android", version.ref = "version-ktor" }
 ktor-client-auth = { module = "io.ktor:ktor-client-auth", version.ref = "version-ktor" }
 ktor-client-contentNegotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "version-ktor" }
+ktor-client-contentNegotiation-new = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "version-ktor-new" }
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "version-ktor" }
+ktor-client-core-new = { module = "io.ktor:ktor-client-core", version.ref = "version-ktor-new" }
 ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "version-ktor" }
 ktor-client-java = { module = "io.ktor:ktor-client-java", version.ref = "version-ktor" }
+ktor-client-js = { module = "io.ktor:ktor-client-js", version.ref = "version-ktor" }
+ktor-client-js-new = { module = "io.ktor:ktor-client-js", version.ref = "version-ktor-new" }
+ktor-client-json = { module = "io.ktor:ktor-client-json", version.ref = "version-ktor" }
+ktor-client-json-new = { module = "io.ktor:ktor-client-json", version.ref = "version-ktor-new" }
+ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "version-ktor" }
+ktor-client-logging-new = { module = "io.ktor:ktor-client-logging", version.ref = "version-ktor-new" }
 ktor-client-mock = { module = "io.ktor:ktor-client-mock", version.ref = "version-ktor" }
+ktor-client-mock-new = { module = "io.ktor:ktor-client-mock", version.ref = "version-ktor-new" }
 ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "version-ktor" }
 ktor-serialization = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "version-ktor" }
+ktor-serialization-new = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "version-ktor-new" }
+ktor-client-serialization = { module = "io.ktor:ktor-client-serialization", version.ref = "version-ktor" }
+ktor-client-serialization-new = { module = "io.ktor:ktor-client-serialization", version.ref = "version-ktor-new" }
 lottie-compose = { module = "com.airbnb.android:lottie-compose", version.ref = "version-lottie-compose" }
 mockito = { module = "org.mockito.kotlin:mockito-kotlin", version.ref = "version-mockito" }
 mockk = { module = "io.mockk:mockk", version.ref = "version-mockk" }
@@ -188,3 +201,7 @@ threetenabp-android = { module = "com.jakewharton.threetenabp:threetenabp", vers
 threetenbp = { module = "org.threeten:threetenbp", version.ref = "version-threetenbp" }
 turbine = { module = "app.cash.turbine:turbine", version.ref = "version-turbine" }
 androidx-runtime-desktop = { group = "androidx.compose.runtime", name = "runtime-desktop", version.ref = "runtimeDesktop" }
+
+[bundles]
+ktor-all = ["ktor-client-core", "ktor-client-json", "ktor-client-logging", "ktor-client-serialization", "ktor-client-contentNegotiation", "ktor-serialization"]
+ktor-all-new = ["ktor-client-core-new", "ktor-client-json-new", "ktor-client-logging-new", "ktor-client-serialization-new", "ktor-client-contentNegotiation-new", "ktor-serialization-new"]

@@ -27,7 +27,7 @@ kotlin {
         }
         binaries.executable()
     }
-    
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -40,9 +40,17 @@ kotlin {
     }
 
     sourceSets {
-        androidMain.dependencies {
-            implementation(compose.preview)
-            implementation(libs.androidx.activity.compose)
+        val androidAndJvm by creating {
+            dependsOn(commonMain.get())
+        }
+
+        val androidMain by getting {
+            dependsOn(androidAndJvm)
+            dependencies {
+                implementation(compose.preview)
+                implementation(libs.androidx.activity.compose)
+                implementation(libs.ktor.client.okhttp)
+            }
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -53,12 +61,28 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
             implementation(libs.coil.compose)
             implementation(libs.kt.serialization)
+            implementation(libs.bundles.ktor.all)
         }
         commonTest.dependencies {
             implementation(libs.kt.test)
+            implementation(libs.ktor.client.mock)
         }
-        jvmMain.dependencies {
-            implementation(compose.desktop.currentOs)
+        iosMain.dependencies {
+            implementation(libs.ktor.client.darwin)
+        }
+        val jvmMain by getting {
+            dependsOn(androidAndJvm)
+            dependencies {
+                implementation(compose.desktop.currentOs)
+                implementation(libs.ktor.client.java)
+            }
+        }
+        wasmJsMain.dependencies {
+            implementation(libs.bundles.ktor.all.new)
+            implementation(libs.ktor.client.js)
+        }
+        wasmJsTest.dependencies {
+            implementation(libs.ktor.client.mock.new)
         }
     }
 }

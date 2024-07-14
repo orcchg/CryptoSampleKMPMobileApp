@@ -13,8 +13,20 @@ plugins {
 withVersionCatalogs {
     configure<KotlinMultiplatformExtension> {
         jvmToolchain(versions.javaVersion.get().toInt())
+        applyDefaultHierarchyTemplate()
         androidTarget()
         jvm()
+
+        targets.all {
+            compilations.all {
+                compileTaskProvider.configure {
+                    compilerOptions {
+                        allWarningsAsErrors.set(true)
+                        freeCompilerArgs.add("-Xexpect-actual-classes")
+                    }
+                }
+            }
+        }
     }
 
     configure<LibraryExtension> {
