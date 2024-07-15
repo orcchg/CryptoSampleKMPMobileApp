@@ -49,6 +49,7 @@ kotlin {
             dependencies {
                 implementation(compose.preview)
                 implementation(libs.androidx.activity.compose)
+                implementation(libs.koin.android.kmm)
                 implementation(libs.ktor.client.okhttp)
             }
         }
@@ -59,16 +60,22 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
-            implementation(libs.coil.compose)
-            implementation(libs.kt.serialization)
             implementation(libs.bundles.ktor.all)
+            implementation(libs.coil.compose)
+            implementation(libs.koin.core.kmm)
+            implementation(libs.kt.serialization)
+            implementation(libs.paging)
+            implementation(libs.paging.compose)
         }
         commonTest.dependencies {
+            implementation(libs.koin.test.kmm)
             implementation(libs.kt.test)
             implementation(libs.ktor.client.mock)
+            implementation(libs.paging.testing)
         }
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
+            implementation(libs.paging.runtime.ios)
         }
         val jvmMain by getting {
             dependsOn(androidAndJvm)
@@ -79,7 +86,7 @@ kotlin {
         }
         wasmJsMain.dependencies {
             implementation(libs.bundles.ktor.all.new)
-            implementation(libs.ktor.client.js)
+            implementation(libs.ktor.client.js.new)
         }
         wasmJsTest.dependencies {
             implementation(libs.ktor.client.mock.new)

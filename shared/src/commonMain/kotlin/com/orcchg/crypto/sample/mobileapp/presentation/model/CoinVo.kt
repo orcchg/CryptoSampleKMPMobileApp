@@ -3,7 +3,7 @@ package com.orcchg.crypto.sample.mobileapp.presentation.model
 import androidx.compose.runtime.Stable
 
 @Stable
-internal class CoinVo(
+class CoinVo(
     val index: Long,
     val name: String,
     val symbol: String,
@@ -15,7 +15,7 @@ internal class CoinVo(
     var isFavourite: Boolean = false
 )
 
-internal enum class DeltaSign(val ch: Char) {
+enum class DeltaSign(val ch: Char) {
     MINUS('-'),
     PLUS('+'),
     NONE(' ')

@@ -60,6 +60,8 @@ version-lottie-compose = "6.4.0"
 version-mockito = "5.3.1"
 version-mockk = "1.13.11"
 version-napier = "2.7.1"
+version-paging = "3.3.0-alpha02-0.5.1"
+version-paging-android = "3.3.0"
 version-robolectric = "4.12.2"
 version-spotless = "7.0.0.BETA1"
 version-sqldelight = "2.0.2"
@@ -185,6 +187,12 @@ mockito = { module = "org.mockito.kotlin:mockito-kotlin", version.ref = "version
 mockk = { module = "io.mockk:mockk", version.ref = "version-mockk" }
 mockk-android = { module = "io.mockk:mockk-android", version.ref = "version-mockk" }
 napier = { module = "io.github.aakira:napier", version.ref = "version-napier" }
+paging = { module = "app.cash.paging:paging-common", version.ref = "version-paging" }
+paging-compose = { module = "app.cash.paging:paging-compose-common", version.ref = "version-paging" }
+paging-compose-android = { module = "androidx.paging:paging-compose", version.ref = "version-paging-android" }
+paging-runtime-android = { module = "androidx.paging:paging-runtime", version.ref = "version-paging-android" }
+paging-runtime-ios = { module = "app.cash.paging:paging-runtime-uikit", version.ref = "version-paging" }
+paging-testing = { module = "app.cash.paging:paging-testing", version.ref = "version-paging" }
 plugin-spotless = { module = "com.diffplug.spotless:spotless-plugin-gradle", version.ref = "version-spotless" }
 robolectric = { module = "org.robolectric:robolectric", version.ref = "version-robolectric" }
 sqldelight-coroutines = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "version-sqldelight" }
