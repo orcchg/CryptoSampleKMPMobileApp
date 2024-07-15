@@ -1,6 +1,6 @@
 package com.orcchg.crypto.sample.mobileapp.domain.model.mapper
 
-import com.orcchg.crypto.sample.mobileapp.data.model.CoinsPageEntity
+import com.orcchg.crypto.sample.mobileapp.data.source.remote.model.CoinsPageEntity
 import com.orcchg.crypto.sample.mobileapp.domain.model.CoinsPage
 
 internal object CoinsPageToDomainMapper {

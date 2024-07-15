@@ -63,6 +63,7 @@ kotlin {
             implementation(libs.bundles.ktor.all)
             implementation(libs.coil.compose)
             implementation(libs.koin.core.kmm)
+            implementation(libs.kt.datetime)
             implementation(libs.kt.serialization)
             implementation(libs.paging)
             implementation(libs.paging.compose)

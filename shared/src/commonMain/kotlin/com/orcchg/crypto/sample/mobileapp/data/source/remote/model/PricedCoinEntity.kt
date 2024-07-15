@@ -1,4 +1,4 @@
-package com.orcchg.crypto.sample.mobileapp.data.model
+package com.orcchg.crypto.sample.mobileapp.data.source.remote.model
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

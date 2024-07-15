@@ -1,4 +1,4 @@
-package com.orcchg.crypto.sample.mobileapp.data.backend
+package com.orcchg.crypto.sample.mobileapp.data.source.remote.backend
 
 import com.orcchg.crypto.sample.mobileapp.shared.BuildConfig
 

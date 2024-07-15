@@ -1,4 +1,4 @@
-package com.orcchg.crypto.sample.mobileapp.data.http
+package com.orcchg.crypto.sample.mobileapp.data.source.remote.http
 
 import io.ktor.client.HttpClient
 

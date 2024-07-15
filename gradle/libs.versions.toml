@@ -53,6 +53,7 @@ version-koin-bom = "3.5.6"
 version-koin-kmm = "3.5.6"
 version-kotlin-std = "2.0.0"
 version-kotlin-coroutines = "1.8.1"
+version-kotlin-datetime = "0.6.0"
 version-kotlin-serialization = "1.6.3"
 version-ktor = "2.3.12"
 version-ktor-new = "3.2.0"
@@ -155,6 +156,7 @@ koin-test-kmm = { module = "io.insert-koin:koin-test", version.ref = "version-ko
 kt-core = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "version-kotlin-std" }
 kt-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "version-kotlin-coroutines" }
 kt-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "version-kotlin-coroutines" }
+kt-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "version-kotlin-datetime" }
 kt-gradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "version-kotlin-std" }
 kt-compose-compiler-gradle = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "version-kotlin-std" }
 kt-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "version-kotlin-std" }

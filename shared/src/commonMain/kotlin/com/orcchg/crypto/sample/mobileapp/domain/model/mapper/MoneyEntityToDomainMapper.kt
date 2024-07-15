@@ -1,6 +1,6 @@
 package com.orcchg.crypto.sample.mobileapp.domain.model.mapper
 
-import com.orcchg.crypto.sample.mobileapp.data.model.MoneyEntity
+import com.orcchg.crypto.sample.mobileapp.data.source.remote.model.MoneyEntity
 import com.orcchg.crypto.sample.mobileapp.domain.model.Money
 import com.orcchg.crypto.sample.mobileapp.domain.model.MoneySign
 
