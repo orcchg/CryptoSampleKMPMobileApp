@@ -254,7 +254,7 @@ fun Currency.getLocale(): java.util.Locale {
         else ->
             for (locale in java.util.Locale.getAvailableLocales()) {
                 val formatter = NumberFormat.getCurrencyInstance(locale)
-                if (currencyCode == formatter.currency.currencyCode) {
+                if (currencyCode == formatter.currency?.currencyCode) {
                     return locale
                 }
             }
