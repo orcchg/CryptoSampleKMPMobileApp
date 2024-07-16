@@ -1,6 +1,7 @@
 package com.orcchg.crypto.sample.mobileapp.presentation.widget
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.wrapContentHeight
@@ -27,22 +28,27 @@ fun CoinList(
         LoadStateLoading -> LoadingState()
         is LoadStateError -> ErrorState(onRetryPressed = coins::retry)
         is LoadStateNotLoading ->
-            LazyColumn(
+            Box(
                 modifier = modifier,
-                contentPadding = PaddingValues(start = 20.dp, end = 20.dp),
-                verticalArrangement = Arrangement.spacedBy(4.dp),
-                horizontalAlignment = Alignment.CenterHorizontally
+                contentAlignment = Alignment.TopCenter
             ) {
-                items(coins.itemCount) { index ->
-                    CoinListItem(
-                        coin = coins[index]!!,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .wrapContentHeight(),
-                        positionInList = index,
-                        onClick = onItemClick,
-                        onFavouriteClick = onFavouriteClick
-                    )
+                LazyColumn(
+                    modifier = Modifier.matchParentSize(),
+                    contentPadding = PaddingValues(start = 20.dp, end = 20.dp),
+                    verticalArrangement = Arrangement.spacedBy(4.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    items(coins.itemCount) { index ->
+                        CoinListItem(
+                            coin = coins[index]!!,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .wrapContentHeight(),
+                            positionInList = index,
+                            onClick = onItemClick,
+                            onFavouriteClick = onFavouriteClick
+                        )
+                    }
                 }
             }
         else -> error("when should be exhaustive")
