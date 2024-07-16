@@ -41,8 +41,8 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 @Composable
 internal fun CoinListItem(
     coin: CoinVo,
-    positionInList: Int = 0,
     modifier: Modifier = Modifier,
+    positionInList: Int = 0,
     onClick: (coinIndex: Long) -> Unit = {},
     onFavouriteClick: (coinIndex: Long) -> Unit = {}
 ) {
