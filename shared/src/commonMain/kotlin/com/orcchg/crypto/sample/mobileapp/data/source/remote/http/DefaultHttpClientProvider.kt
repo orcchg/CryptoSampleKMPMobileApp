@@ -17,11 +17,7 @@ internal class DefaultHttpClientProvider(
         HttpClient {
             expectSuccess = true
             install(ContentNegotiation) {
-                json(
-                    Json {
-                        ignoreUnknownKeys = true
-                    },
-                )
+                json(Json { ignoreUnknownKeys = true })
             }
             install(HttpTimeout) {
                 requestTimeoutMillis = timeout
