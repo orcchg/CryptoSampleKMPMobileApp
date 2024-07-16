@@ -43,7 +43,7 @@ fun CoinListScreen(
             .fillMaxWidth()
             .pullRefresh(pullRefreshState),
         onItemClick = onItemClick,
-        onFavouriteClick = {}, // TODO: add to favourites
+        onFavouriteClick = { _, _ -> }, // TODO: add to favourites
         onLoadFinished = { isRefreshing = false }
     )
 }

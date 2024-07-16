@@ -21,7 +21,7 @@ fun CoinList(
     coins: LazyPagingItems<CoinVo>,
     modifier: Modifier = Modifier,
     onItemClick: (coinIndex: Long) -> Unit = {},
-    onFavouriteClick: (coinIndex: Long) -> Unit = {},
+    onFavouriteClick: (coinIndex: Long, isFavourite: Boolean) -> Unit = { _, _ -> },
     onLoadFinished: () -> Unit = {}
 ) {
     when (coins.loadState.refresh) {
@@ -39,14 +39,17 @@ fun CoinList(
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     items(coins.itemCount) { index ->
+                        val coin = coins[index]!!
                         CoinListItem(
-                            coin = coins[index]!!,
+                            coin = coin,
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .wrapContentHeight(),
                             positionInList = index,
                             onClick = onItemClick,
-                            onFavouriteClick = onFavouriteClick
+                            onFavouriteClick = {
+                                onFavouriteClick(coin.index, coin.isFavourite)
+                            }
                         )
                     }
                 }
