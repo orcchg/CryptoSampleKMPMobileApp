@@ -13,7 +13,6 @@ import androidx.compose.material.ScrollableTabRow
 import androidx.compose.material.Tab
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -25,11 +24,7 @@ import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 import com.orcchg.crypto.sample.mobileapp.di.ServiceLocator
 import com.orcchg.crypto.sample.mobileapp.presentation.theme.Colors
-import cryptosamplekmpmobileapp.shared.generated.resources.Res
-import cryptosamplekmpmobileapp.shared.generated.resources.label_tab_all
-import cryptosamplekmpmobileapp.shared.generated.resources.label_tab_favourite
 import kotlinx.coroutines.launch
-import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -96,14 +91,9 @@ fun CoinTabsScreen(
         ) {
             CoinListScreen(
                 serviceLocator = serviceLocator,
+                tab = Tabs.entries[it],
                 onItemClick = onCoinItemClick
             )
         }
     }
-}
-
-@Immutable
-private enum class Tabs(val resId: StringResource) {
-    ALL(resId = Res.string.label_tab_all),
-    FAVOURITES(resId = Res.string.label_tab_favourite)
 }

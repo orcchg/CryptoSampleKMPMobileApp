@@ -22,6 +22,7 @@ import kotlinx.coroutines.launch
 @Composable
 fun CoinListScreen(
     serviceLocator: ServiceLocator,
+    tab: Tabs,
     viewModel: CoinListViewModel = CoinListViewModelFactory().create(serviceLocator),
     onItemClick: (coinIndex: Long) -> Unit = {}
 ) {
