@@ -68,7 +68,7 @@ kotlin {
             implementation(libs.kt.serialization)
             implementation(libs.paging)
             implementation(libs.paging.compose)
-            implementation(libs.pulltorefresh)
+//            implementation(libs.pulltorefresh)
         }
         commonTest.dependencies {
             implementation(libs.koin.test.kmm)
