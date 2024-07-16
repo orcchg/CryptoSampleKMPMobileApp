@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="button_retry">Retry</string>
-
     <string name="label_error">Something went wrong</string>
+    <string name="label_search_hint">Find coin or symbol</string>
 </resources>
