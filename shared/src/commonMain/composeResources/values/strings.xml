@@ -3,4 +3,6 @@
     <string name="button_retry">Retry</string>
     <string name="label_error">Something went wrong</string>
     <string name="label_search_hint">Find coin or symbol</string>
+    <string name="label_tab_all">Coins</string>
+    <string name="label_tab_favourite">Favourite</string>
 </resources>

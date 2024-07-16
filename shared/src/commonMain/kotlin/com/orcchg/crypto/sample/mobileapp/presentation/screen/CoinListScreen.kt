@@ -1,11 +1,13 @@
 package com.orcchg.crypto.sample.mobileapp.presentation.screen
 
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
 import app.cash.paging.compose.collectAsLazyPagingItems
 import com.orcchg.crypto.sample.mobileapp.di.ServiceLocator
 import com.orcchg.crypto.sample.mobileapp.presentation.viewmodel.CoinListViewModel
@@ -16,8 +18,7 @@ import com.orcchg.crypto.sample.mobileapp.presentation.widget.CoinList
 fun CoinListScreen(
     serviceLocator: ServiceLocator,
     viewModel: CoinListViewModel = CoinListViewModelFactory().create(serviceLocator),
-    onClick: (coinIndex: Long) -> Unit = {},
-    onFavouriteClick: (coinIndex: Long) -> Unit = {}
+    onItemClick: (coinIndex: Long) -> Unit = {}
 ) {
     val coins = viewModel.items.collectAsLazyPagingItems()
     val scope = rememberCoroutineScope()
@@ -37,8 +38,9 @@ fun CoinListScreen(
 //    ) {
         CoinList(
             coins = coins,
-            onClick = onClick,
-            onFavouriteClick = onFavouriteClick,
+            modifier = Modifier.fillMaxWidth(),
+            onItemClick = onItemClick,
+            onFavouriteClick = {}, // TODO: add to favourites
             onLoadFinished = { isRefreshing = false }
         )
 //    }

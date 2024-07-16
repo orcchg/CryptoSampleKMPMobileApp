@@ -19,7 +19,7 @@ import com.orcchg.crypto.sample.mobileapp.presentation.model.CoinVo
 fun CoinList(
     coins: LazyPagingItems<CoinVo>,
     modifier: Modifier = Modifier,
-    onClick: (coinIndex: Long) -> Unit = {},
+    onItemClick: (coinIndex: Long) -> Unit = {},
     onFavouriteClick: (coinIndex: Long) -> Unit = {},
     onLoadFinished: () -> Unit = {}
 ) {
@@ -28,7 +28,7 @@ fun CoinList(
         is LoadStateError -> ErrorState(onRetryPressed = coins::retry)
         is LoadStateNotLoading ->
             LazyColumn(
-                modifier = modifier.fillMaxWidth(),
+                modifier = modifier,
                 contentPadding = PaddingValues(start = 20.dp, end = 20.dp),
                 verticalArrangement = Arrangement.spacedBy(4.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
@@ -40,7 +40,7 @@ fun CoinList(
                             .fillMaxWidth()
                             .wrapContentHeight(),
                         positionInList = index,
-                        onClick = onClick,
+                        onClick = onItemClick,
                         onFavouriteClick = onFavouriteClick
                     )
                 }
