@@ -22,6 +22,10 @@ internal class InMemoryCoinsDatabaseFacade : CoinsDatabaseFacade {
         )
 
     override suspend fun append(coins: List<PricedCoin>) {
+        if (coins.isEmpty()) {
+            return
+        }
+
         data.addAll(coins)
         if (createdAt <= 0L) {
             createdAt = Clock.System.now().toEpochMilliseconds()

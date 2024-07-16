@@ -33,7 +33,7 @@ internal class CoinsRemoteMediator(
             remote.coins(offset = offset, limit = Constants.PAGE_LIMIT)
                 .also { local.append(it.coins) } // update backing dataset
                 .let {
-                    val endOfPaginationReached = nextOffset >= it.total
+                    val endOfPaginationReached = it.coins.isEmpty() || nextOffset >= it.total
                     MediatorResult.Success(endOfPaginationReached)
                 }
         }

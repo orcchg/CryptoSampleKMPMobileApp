@@ -67,7 +67,7 @@ internal fun CoinListItem(
                 .wrapContentSize()
                 .clickable { onClick(coin.index) }
                 .clip(shape = RoundedCornerShape(12.dp)),
-            contentAlignment = Alignment.Center,
+            contentAlignment = Alignment.Center
         ) {
             AsyncImage(
                 model =
@@ -77,7 +77,7 @@ internal fun CoinListItem(
                     .build(),
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
-                modifier = Modifier.size(52.dp),
+                modifier = Modifier.size(52.dp)
             )
         }
         Spacer(modifier = Modifier.width(8.dp))
@@ -95,12 +95,12 @@ internal fun CoinListItem(
                     modifier = Modifier.padding(vertical = 3.dp),
                     color = Colors.textColor,
                     fontWeight = FontWeight.Bold,
-                    style = MaterialTheme.typography.h6,
+                    style = MaterialTheme.typography.h6
                 )
                 Spacer(modifier = Modifier.width(2.dp))
                 IconButton(
                     onClick = { onFavouriteClick(coin.index) },
-                    modifier = Modifier.size(16.dp),
+                    modifier = Modifier.size(16.dp)
                 ) {
                     val iconResId = if (coin.isFavourite) {
                         Res.drawable.ic_fav_on
@@ -109,7 +109,7 @@ internal fun CoinListItem(
                     }
                     Icon(
                         imageVector = vectorResource(iconResId),
-                        contentDescription = null,
+                        contentDescription = null
                     )
                 }
             }
@@ -118,7 +118,7 @@ internal fun CoinListItem(
                 modifier = Modifier.padding(vertical = 2.dp),
                 color = Colors.textColor,
                 fontWeight = FontWeight.SemiBold,
-                style = MaterialTheme.typography.caption,
+                style = MaterialTheme.typography.caption
             )
         }
         Spacer(modifier = Modifier.weight(1.0f))
@@ -137,14 +137,14 @@ internal fun CoinListItem(
                 modifier = Modifier.padding(vertical = 3.dp),
                 color = Colors.textColor,
                 fontWeight = FontWeight.Bold,
-                style = MaterialTheme.typography.h6,
+                style = MaterialTheme.typography.h6
             )
             Text(
                 text = coin.delta,
                 modifier = Modifier.padding(vertical = 2.dp),
                 color = deltaTextColor,
                 fontWeight = FontWeight.SemiBold,
-                style = MaterialTheme.typography.caption,
+                style = MaterialTheme.typography.caption
             )
         }
     }

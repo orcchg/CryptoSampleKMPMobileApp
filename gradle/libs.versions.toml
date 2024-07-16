@@ -63,6 +63,7 @@ version-mockk = "1.13.11"
 version-napier = "2.7.1"
 version-paging = "3.3.0-alpha02-0.5.1"
 version-paging-android = "3.3.0"
+version-pulltorefresh = "1.4.0-beta03"
 version-robolectric = "4.12.2"
 version-spotless = "7.0.0.BETA1"
 version-sqldelight = "2.0.2"
@@ -196,6 +197,7 @@ paging-runtime-android = { module = "androidx.paging:paging-runtime", version.re
 paging-runtime-ios = { module = "app.cash.paging:paging-runtime-uikit", version.ref = "version-paging" }
 paging-testing = { module = "app.cash.paging:paging-testing", version.ref = "version-paging" }
 plugin-spotless = { module = "com.diffplug.spotless:spotless-plugin-gradle", version.ref = "version-spotless" }
+pulltorefresh = { module = "dev.materii.pullrefresh:pullrefresh", version.ref = "version-pulltorefresh" }
 robolectric = { module = "org.robolectric:robolectric", version.ref = "version-robolectric" }
 sqldelight-coroutines = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "version-sqldelight" }
 sqldelight-driver-core = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "version-sqldelight" }

@@ -20,4 +20,8 @@ internal class RealCoinListViewModel(
         }
             .cachedIn(viewModelScope)
     }
+
+    override suspend fun refresh() {
+        TODO("Not yet implemented")
+    }
 }
