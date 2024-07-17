@@ -1,4 +1,4 @@
-package com.orcchg.crypto.sample.mobileapp.domain.model.mapper
+package com.orcchg.crypto.sample.mobileapp.data.source.remote.model.mapper
 
 import com.orcchg.crypto.sample.mobileapp.data.source.remote.model.CoinEntity
 import com.orcchg.crypto.sample.mobileapp.domain.model.Coin

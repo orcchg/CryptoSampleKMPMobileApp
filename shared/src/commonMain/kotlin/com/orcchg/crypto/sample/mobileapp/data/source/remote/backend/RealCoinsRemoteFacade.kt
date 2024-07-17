@@ -6,7 +6,7 @@ import com.orcchg.crypto.sample.mobileapp.data.source.remote.http.DefaultHttpCli
 import com.orcchg.crypto.sample.mobileapp.data.source.remote.http.HttpClientProvider
 import com.orcchg.crypto.sample.mobileapp.data.source.remote.model.CoinsPageEntity
 import com.orcchg.crypto.sample.mobileapp.domain.model.CoinsPage
-import com.orcchg.crypto.sample.mobileapp.domain.model.mapper.CoinsPageToDomainMapper
+import com.orcchg.crypto.sample.mobileapp.data.source.remote.model.mapper.CoinsPageToDomainMapper
 import io.ktor.client.call.body
 import io.ktor.client.request.forms.submitForm
 import io.ktor.http.ContentType
