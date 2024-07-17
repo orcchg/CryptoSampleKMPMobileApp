@@ -5,6 +5,7 @@ import com.orcchg.crypto.sample.mobileapp.domain.model.Coin
 import com.orcchg.crypto.sample.mobileapp.domain.model.Money
 import com.orcchg.crypto.sample.mobileapp.domain.model.MoneySign
 import com.orcchg.crypto.sample.mobileapp.domain.model.PricedCoin
+import kotlinx.datetime.Clock
 
 internal object CoinDaoToDomainMapper {
     fun toDomain(dao: CoinDao): PricedCoin =
@@ -33,6 +34,7 @@ internal object CoinDaoToDomainMapper {
 
     fun fromDomain(coin: PricedCoin): CoinDao =
         with (coin.coin) {
+            val now = Clock.System.now().toEpochMilliseconds()
             CoinDao(
                 id = index,
                 name = name,
@@ -45,7 +47,8 @@ internal object CoinDaoToDomainMapper {
                 delta = coin.delta.getAmountAsString(),
                 deltaCurrency = coin.delta.getCurrencyAsString(),
                 deltaSign = coin.delta.sign,
-                isFavourite = isFavourite
+                isFavourite = isFavourite,
+                createdAt = now
             )
         }
 }

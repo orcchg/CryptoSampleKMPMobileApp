@@ -15,8 +15,15 @@ CREATE TABLE IF NOT EXISTS CoinDao(
   delta TEXT,
   deltaCurrency TEXT,
   deltaSign TEXT AS MoneySign DEFAULT '+',
-  isFavourite INTEGER AS Boolean NOT NULL DEFAULT 0
+  isFavourite INTEGER AS Boolean NOT NULL DEFAULT 0,
+  createdAt INTEGER AS Long NOT NULL DEFAULT 0
 );
+
+count:
+SELECT COUNT(*) FROM CoinDao;
+
+minByCreatedAt:
+SELECT * FROM CoinDao ORDER BY createdAt ASC LIMIT 1;
 
 select:
 SELECT * FROM CoinDao;
@@ -25,10 +32,24 @@ selectFavourites:
 SELECT * FROM CoinDao WHERE isFavourite = :isFavourite;
 
 search:
-SELECT * FROM CoinDao WHERE name LIKE ? OR symbol LIKE ?;
+SELECT * FROM CoinDao WHERE symbol LIKE ? OR name LIKE ?;
 
 insert:
-INSERT OR REPLACE INTO CoinDao(id, name, symbol, url, logoUrl, price, delta, deltaSign, isFavourite) VALUES ?;
+INSERT OR REPLACE INTO CoinDao(
+    id,
+    name,
+    symbol,
+    url,
+    logoUrl,
+    price,
+    priceCurrency,
+    priceSign,
+    delta,
+    deltaCurrency,
+    deltaSign,
+    isFavourite,
+    createdAt
+) VALUES ?;
 
 deleteAll:
 DELETE FROM CoinDao;
