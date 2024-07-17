@@ -36,6 +36,6 @@ internal class RealCoinsRemoteFacade(
                 contentType(ContentType.Application.FormUrlEncoded)
             }
                 .body<CoinsPageEntity>()
-                .let(CoinsPageToDomainMapper::map)
+                .let(CoinsPageToDomainMapper::toDomain)
         }
 }

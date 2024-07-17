@@ -15,6 +15,8 @@ actual class Money(
     actual operator fun div(other: Money): Money = Money()
     actual operator fun times(other: Money): Money = Money()
     actual fun isZero(): Boolean = false
+    actual fun getAmountAsString(): String = ""
+    actual fun getCurrencyAsString(): String = ""
 }
 
 actual fun Double.money(): Money = Money()

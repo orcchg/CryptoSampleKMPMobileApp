@@ -28,6 +28,8 @@ expect class Money {
     operator fun div(other: Money): Money
     operator fun times(other: Money): Money
     fun isZero(): Boolean
+    fun getAmountAsString(): String
+    fun getCurrencyAsString(): String
 }
 
 expect fun Double.money(): Money

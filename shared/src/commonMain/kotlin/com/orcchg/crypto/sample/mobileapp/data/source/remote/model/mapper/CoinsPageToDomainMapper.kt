@@ -4,10 +4,10 @@ import com.orcchg.crypto.sample.mobileapp.data.source.remote.model.CoinsPageEnti
 import com.orcchg.crypto.sample.mobileapp.domain.model.CoinsPage
 
 internal object CoinsPageToDomainMapper {
-    fun map(entity: CoinsPageEntity): CoinsPage =
+    fun toDomain(entity: CoinsPageEntity): CoinsPage =
         with (entity) {
             CoinsPage(
-                coins = coins.map(PricedCoinEntityToDomainMapper::map),
+                coins = coins.map(PricedCoinEntityToDomainMapper::toDomain),
                 offset = offset,
                 total = total
             )

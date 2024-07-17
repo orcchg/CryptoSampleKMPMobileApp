@@ -36,6 +36,10 @@ actual data class Money private constructor(
         sign = sign
     )
 
+    actual fun getAmountAsString(): String = amount.toPlainString()
+
+    actual fun getCurrencyAsString(): String = currency.currencyCode
+
     /**
      * Retrieves signed amount of money, which is of good fit for arithmetic.
      */

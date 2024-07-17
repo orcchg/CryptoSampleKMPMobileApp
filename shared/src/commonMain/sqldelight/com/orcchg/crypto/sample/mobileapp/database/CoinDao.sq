@@ -10,7 +10,10 @@ CREATE TABLE IF NOT EXISTS CoinDao(
   url TEXT,
   logoUrl TEXT,
   price TEXT,
+  priceCurrency TEXT,
+  priceSign TEXT AS MoneySign DEFAULT '+',
   delta TEXT,
+  deltaCurrency TEXT,
   deltaSign TEXT AS MoneySign DEFAULT '+',
   isFavourite INTEGER AS Boolean NOT NULL DEFAULT 0
 );

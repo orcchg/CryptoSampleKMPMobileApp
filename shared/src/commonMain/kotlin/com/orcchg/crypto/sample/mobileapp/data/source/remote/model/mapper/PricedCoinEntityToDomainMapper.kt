@@ -4,12 +4,12 @@ import com.orcchg.crypto.sample.mobileapp.data.source.remote.model.PricedCoinEnt
 import com.orcchg.crypto.sample.mobileapp.domain.model.PricedCoin
 
 internal object PricedCoinEntityToDomainMapper {
-    fun map(entity: PricedCoinEntity): PricedCoin =
+    fun toDomain(entity: PricedCoinEntity): PricedCoin =
         with (entity) {
             PricedCoin(
-                coin = CoinEntityToDomainMapper.map(coin),
-                price = MoneyEntityToDomainMapper.map(price),
-                delta = MoneyEntityToDomainMapper.map(delta)
+                coin = CoinEntityToDomainMapper.toDomain(coin),
+                price = MoneyEntityToDomainMapper.toDomain(price),
+                delta = MoneyEntityToDomainMapper.toDomain(delta)
             )
         }
 }

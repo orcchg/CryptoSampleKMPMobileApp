@@ -5,7 +5,7 @@ import com.orcchg.crypto.sample.mobileapp.domain.model.Money
 import com.orcchg.crypto.sample.mobileapp.domain.model.MoneySign
 
 internal object MoneyEntityToDomainMapper {
-    fun map(entity: MoneyEntity): Money =
+    fun toDomain(entity: MoneyEntity): Money =
         with (entity) {
             Money(
                 amount = amount,
