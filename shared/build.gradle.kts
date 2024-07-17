@@ -22,21 +22,21 @@ sqldelight {
 }
 
 kotlin {
-    wasmJs {
-        moduleName = "shared"
-        browser {
-            commonWebpackConfig {
-                outputFileName = "shared.js"
-                devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
-                    static = (static ?: mutableListOf()).apply {
-                        // Serve sources to debug inside browser
-                        add(project.projectDir.path)
-                    }
-                }
-            }
-        }
-        binaries.executable()
-    }
+//    wasmJs {
+//        moduleName = "shared"
+//        browser {
+//            commonWebpackConfig {
+//                outputFileName = "shared.js"
+//                devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
+//                    static = (static ?: mutableListOf()).apply {
+//                        // Serve sources to debug inside browser
+//                        add(project.projectDir.path)
+//                    }
+//                }
+//            }
+//        }
+//        binaries.executable()
+//    }
 
     listOf(
         iosX64(),
