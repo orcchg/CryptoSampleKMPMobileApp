@@ -8,7 +8,17 @@ plugins {
     kotlin("plugin.serialization") version "2.0.0"
     alias(libs.plugins.compose.multiplatform)
     alias(libs.plugins.compose.multiplatform.compiler)
-//    alias(libs.plugins.sqldelight.gradle)
+    alias(libs.plugins.sqldelight.gradle)
+}
+
+sqldelight {
+    databases {
+        create("CryptoSampleKMPDatabase") {
+            packageName = "com.orcchg.crypto.sample.mobileapp.database"
+            schemaOutputDirectory = file("src/main/sqldelight/databases")
+            verifyMigrations = true
+        }
+    }
 }
 
 kotlin {
@@ -43,6 +53,16 @@ kotlin {
         val androidAndJvm by creating {
             dependsOn(commonMain.get())
         }
+        val androidAndJvmTest by creating {
+            dependsOn(commonMain.get())
+            dependsOn(commonTest.get())
+            dependsOn(androidAndJvm)
+            dependencies {
+                implementation(libs.hamcrest)
+                implementation(libs.mockk)
+                implementation(libs.robolectric)
+            }
+        }
 
         val androidMain by getting {
             dependsOn(androidAndJvm)
@@ -52,6 +72,13 @@ kotlin {
                 implementation(libs.androidx.lifecycle.viewmodel.compose)
                 implementation(libs.koin.android.kmm)
                 implementation(libs.ktor.client.okhttp)
+                implementation(libs.sqldelight.driver.android)
+            }
+        }
+        val androidUnitTest by getting {
+            dependsOn(androidAndJvmTest)
+            dependencies {
+                implementation(libs.sqldelight.driver.core)
             }
         }
         commonMain.dependencies {
@@ -68,6 +95,9 @@ kotlin {
             implementation(libs.kt.serialization)
             implementation(libs.paging)
             implementation(libs.paging.compose)
+            implementation(libs.sqldelight.coroutines)
+            implementation(libs.sqldelight.primitive.adapters)
+            implementation(libs.sqldelight.runtime)
         }
         commonTest.dependencies {
             implementation(libs.koin.test.kmm)
@@ -78,12 +108,14 @@ kotlin {
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
             implementation(libs.paging.runtime.ios)
+            implementation(libs.sqldelight.driver.native)
         }
         val jvmMain by getting {
             dependsOn(androidAndJvm)
             dependencies {
                 implementation(compose.desktop.currentOs)
                 implementation(libs.ktor.client.java)
+                implementation(libs.sqldelight.driver.core)
             }
         }
         wasmJsMain.dependencies {
