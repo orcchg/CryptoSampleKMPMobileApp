@@ -1,0 +1,31 @@
+import com.orcchg.crypto.sample.mobileapp.domain.model.MoneySign;
+import kotlin.Boolean;
+import kotlin.Long;
+import kotlin.String;
+
+CREATE TABLE IF NOT EXISTS CoinDao(
+  id INTEGER AS Long NOT NULL PRIMARY KEY,
+  name TEXT AS String NOT NULL,
+  symbol TEXT AS String NOT NULL,
+  url TEXT,
+  logoUrl TEXT,
+  price TEXT,
+  delta TEXT,
+  deltaSign TEXT AS MoneySign DEFAULT '+',
+  isFavourite INTEGER AS Boolean NOT NULL DEFAULT 0
+);
+
+select:
+SELECT * FROM CoinDao;
+
+selectFavourites:
+SELECT * FROM CoinDao WHERE isFavourite = :isFavourite;
+
+search:
+SELECT * FROM CoinDao WHERE name LIKE ? OR symbol LIKE ?;
+
+insert:
+INSERT OR REPLACE INTO CoinDao(id, name, symbol, url, logoUrl, price, delta, deltaSign, isFavourite) VALUES ?;
+
+deleteAll:
+DELETE FROM CoinDao;

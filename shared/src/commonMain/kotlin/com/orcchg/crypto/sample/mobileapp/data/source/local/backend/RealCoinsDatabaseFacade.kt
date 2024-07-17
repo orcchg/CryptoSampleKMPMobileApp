@@ -1,10 +1,13 @@
 package com.orcchg.crypto.sample.mobileapp.data.source.local.backend
 
 import com.orcchg.crypto.sample.mobileapp.data.source.local.CoinsDatabaseFacade
+import com.orcchg.crypto.sample.mobileapp.database.CryptoSampleKMPDatabase
 import com.orcchg.crypto.sample.mobileapp.domain.model.CoinsPage
 import com.orcchg.crypto.sample.mobileapp.domain.model.PricedCoin
 
-internal class RealCoinsDatabaseFacade : CoinsDatabaseFacade {
+internal class RealCoinsDatabaseFacade(
+    private val database: CryptoSampleKMPDatabase
+) : CoinsDatabaseFacade {
     override suspend fun isEmptyOrExpired(): Boolean {
         TODO("Not yet implemented")
     }
