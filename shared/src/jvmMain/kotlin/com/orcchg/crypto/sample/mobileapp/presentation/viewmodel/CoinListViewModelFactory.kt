@@ -11,6 +11,12 @@ actual class CoinListViewModelFactory actual constructor(
     @Composable
     actual fun create(serviceLocator: ServiceLocator): CoinListViewModel =
         RealCoinListViewModel(
-            cryptoRepository = serviceLocator.cryptoRepository
+            cryptoRepository =
+                if (useLocalDataSourceOnly) {
+                    serviceLocator.localCryptoRepository
+                } else {
+                    serviceLocator.cryptoRepository
+                },
+            searchPredicate = searchPredicate
         )
 }

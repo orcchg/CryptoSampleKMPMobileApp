@@ -14,7 +14,13 @@ actual class CoinListViewModelFactory actual constructor(
         viewModel(
             factory = createViewModelFactory {
                 RealCoinListViewModel(
-                    cryptoRepository = serviceLocator.cryptoRepository
+                    cryptoRepository =
+                        if (useLocalDataSourceOnly) {
+                            serviceLocator.localCryptoRepository
+                        } else {
+                            serviceLocator.cryptoRepository
+                        },
+                    searchPredicate = searchPredicate
                 )
             }
         )

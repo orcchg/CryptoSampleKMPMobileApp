@@ -4,4 +4,5 @@ import com.orcchg.crypto.sample.mobileapp.domain.repository.CryptoRepository
 
 interface ServiceLocator {
     val cryptoRepository: CryptoRepository
+    val localCryptoRepository: CryptoRepository
 }

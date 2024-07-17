@@ -1,6 +1,11 @@
 package com.orcchg.crypto.sample.mobileapp.data.source.local
 
-enum class Qualifier {
+enum class CacheQualifier {
     IN_MEMORY,
     PERSISTENT
+}
+
+enum class RepositoryQualifier {
+    LOCAL,
+    REAL
 }
