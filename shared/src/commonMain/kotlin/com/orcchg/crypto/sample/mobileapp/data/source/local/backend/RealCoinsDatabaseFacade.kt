@@ -13,6 +13,7 @@ import kotlin.math.abs
 internal class RealCoinsDatabaseFacade(
     private val database: CryptoSampleKMPDatabase
 ) : CoinsDatabaseFacade {
+
     override suspend fun isEmptyOrExpired(): Boolean =
         (database.coinDaoQueries.count().executeAsOneOrNull() ?: 0) <= 0 ||
         abs(Clock.System.now().toEpochMilliseconds() - (database.coinDaoQueries.minByCreatedAt().executeAsOneOrNull()?.createdAt ?: 0L)) >= Constants.CACHE_EXPIRATION_MILLIS
