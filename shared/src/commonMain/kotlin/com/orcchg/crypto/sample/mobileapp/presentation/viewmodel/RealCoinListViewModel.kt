@@ -18,8 +18,7 @@ internal class RealCoinListViewModel(
 
     override val items: Flow<PagingData<CoinVo>> by lazy(LazyThreadSafetyMode.NONE) {
         cryptoRepository.coinsPages.map { page ->
-            // TODO: set isFavourite
-            page.map { PricedCoinToCoinVoMapper.map(it, isFavourite = false) }
+            page.map(PricedCoinToCoinVoMapper::map)
         }
             .cachedIn(viewModelScope)
     }

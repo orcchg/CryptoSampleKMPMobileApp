@@ -11,7 +11,8 @@ internal object CoinEntityToDomainMapper {
                 name = name,
                 symbol = symbol,
                 url = url,
-                logoUrl = logoUrl
+                logoUrl = logoUrl,
+                isFavourite = false // no favourite status in remote
             )
         }
 }

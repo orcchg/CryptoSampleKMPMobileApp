@@ -5,5 +5,6 @@ class Coin(
     val name: String,
     val symbol: String,
     val url: String,
-    val logoUrl: String
+    val logoUrl: String,
+    val isFavourite: Boolean
 )

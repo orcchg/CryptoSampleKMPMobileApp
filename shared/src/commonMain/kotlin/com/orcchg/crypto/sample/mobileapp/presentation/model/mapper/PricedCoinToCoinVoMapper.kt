@@ -6,7 +6,7 @@ import com.orcchg.crypto.sample.mobileapp.presentation.model.CoinVo
 import com.orcchg.crypto.sample.mobileapp.presentation.model.DeltaSign
 
 internal object PricedCoinToCoinVoMapper {
-    fun map(coin: PricedCoin, isFavourite: Boolean): CoinVo =
+    fun map(coin: PricedCoin): CoinVo =
         with (coin.coin) {
             val deltaSign = when (coin.delta.sign) {
                 MoneySign.MINUS -> DeltaSign.MINUS
