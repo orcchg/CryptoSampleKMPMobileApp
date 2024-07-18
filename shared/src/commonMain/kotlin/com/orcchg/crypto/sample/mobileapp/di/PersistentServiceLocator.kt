@@ -10,14 +10,13 @@ import org.koin.core.Koin
 import org.koin.core.qualifier.named
 
 internal class PersistentServiceLocator(
-    private val koin: Koin,
-    private val cacheQualifier: CacheQualifier
+    private val koin: Koin
 ) : ServiceLocator {
     override fun cryptoRepository(results: CoinListResults): CryptoRepository =
         when (results) {
             CoinListResults.ALL ->
                 RealCryptoRepository(
-                    local = koin.get(qualifier = named(cacheQualifier)),
+                    local = koin.get(qualifier = named(CacheQualifier.PERSISTENT)),
                     remote = koin.get(),
                     useAsLocalOnlyDataSource = false,
                     pagingSourceFactory = {
@@ -28,7 +27,7 @@ internal class PersistentServiceLocator(
                 )
             CoinListResults.FAVOURITE ->
                 RealCryptoRepository(
-                    local = koin.get(qualifier = named(cacheQualifier)),
+                    local = koin.get(qualifier = named(CacheQualifier.PERSISTENT)),
                     remote = koin.get(),
                     useAsLocalOnlyDataSource = true,
                     pagingSourceFactory = {

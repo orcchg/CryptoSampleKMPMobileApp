@@ -27,10 +27,7 @@ internal val serviceLocatorPersistentModule = module {
         remoteDataSourceModule
     )
 
-    single<ServiceLocator>(named(CacheQualifier.IN_MEMORY)) {
-        PersistentServiceLocator(koin = getKoin(), cacheQualifier = CacheQualifier.IN_MEMORY)
-    }
-    single<ServiceLocator>(named(CacheQualifier.PERSISTENT)) {
-        PersistentServiceLocator(koin = getKoin(), cacheQualifier = CacheQualifier.PERSISTENT)
+    single<ServiceLocator> {
+        PersistentServiceLocator(koin = getKoin())
     }
 }
