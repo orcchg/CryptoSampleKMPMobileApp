@@ -7,7 +7,7 @@ import com.orcchg.crypto.sample.mobileapp.domain.model.CoinsPage
 import com.orcchg.crypto.sample.mobileapp.domain.model.PricedCoin
 
 internal abstract class BaseCoinsPagingSource(
-    private val coinsProvider: suspend (offset: Int, limit: Int) -> CoinsPage
+    private val coinsProvider: suspend (limit: Int, offset: Int) -> CoinsPage
 ) : PagingSource<Int, PricedCoin>() {
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, PricedCoin> =

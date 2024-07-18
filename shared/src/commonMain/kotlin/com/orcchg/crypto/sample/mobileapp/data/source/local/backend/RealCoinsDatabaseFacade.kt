@@ -3,7 +3,6 @@ package com.orcchg.crypto.sample.mobileapp.data.source.local.backend
 import com.orcchg.crypto.sample.mobileapp.data.Constants
 import com.orcchg.crypto.sample.mobileapp.data.source.local.CoinsDatabaseFacade
 import com.orcchg.crypto.sample.mobileapp.data.source.local.model.mapper.CoinDaoToDomainMapper
-import com.orcchg.crypto.sample.mobileapp.database.CoinDao
 import com.orcchg.crypto.sample.mobileapp.database.CryptoSampleKMPDatabase
 import com.orcchg.crypto.sample.mobileapp.domain.model.CoinsPage
 import com.orcchg.crypto.sample.mobileapp.domain.model.PricedCoin
@@ -15,33 +14,65 @@ internal class RealCoinsDatabaseFacade(
 ) : CoinsDatabaseFacade {
 
     override suspend fun isEmptyOrExpired(): Boolean =
-        (database.coinDaoQueries.count().executeAsOneOrNull() ?: 0) <= 0 ||
+        (database.coinDaoQueries.count().executeAsOneOrNull() ?: 0L) <= 0L ||
         abs(Clock.System.now().toEpochMilliseconds() - (database.coinDaoQueries.minByCreatedAt().executeAsOneOrNull()?.createdAt ?: 0L)) >= Constants.CACHE_EXPIRATION_MILLIS
 
-    override suspend fun coins(offset: Int, limit: Int): CoinsPage =
-        retrieve(
-            items = database.coinDaoQueries.select().executeAsList(),
-            offset = offset,
-            limit = limit
-        )
+    override suspend fun coins(limit: Int, offset: Int): CoinsPage {
+        checkLimitAndOffset(limit = limit, offset = offset)
+        val total = database.coinDaoQueries.count()
+            .executeAsOneOrNull()
+            ?.toInt()
+            ?: 0
 
-    override suspend fun favouriteCoins(offset: Int, limit: Int): CoinsPage =
-        retrieve(
-            items = database.coinDaoQueries.selectFavourites(isFavourite = true).executeAsList(),
-            offset = offset,
-            limit = limit
-        )
-
-    override suspend fun search(searchTerm: String, offset: Int, limit: Int): CoinsPage =
-        retrieve(
-            items = database.coinDaoQueries.search(
-                symbol = searchTerm,
-                name = searchTerm
+        return checkSize(size = total, limit = limit, offset = offset) ?:
+            database.coinDaoQueries.select(
+                limit = limit.toLong(),
+                offset = offset.toLong()
             )
-                .executeAsList(),
-            offset = offset,
-            limit = limit
+                .executeAsList()
+                .map(CoinDaoToDomainMapper::toDomain)
+                .let { CoinsPage(coins = it, offset = offset, total = total) }
+    }
+
+    override suspend fun favouriteCoins(limit: Int, offset: Int): CoinsPage {
+        checkLimitAndOffset(limit = limit, offset = offset)
+        val total = database.coinDaoQueries.countFavourites(isFavourite = true)
+            .executeAsOneOrNull()
+            ?.toInt()
+            ?: 0
+
+        return checkSize(size = total, limit = limit, offset = offset) ?:
+            database.coinDaoQueries.selectFavourites(
+                isFavourite = true,
+                limit = limit.toLong(),
+                offset = offset.toLong()
+            )
+                .executeAsList()
+                .map(CoinDaoToDomainMapper::toDomain)
+                .let { CoinsPage(coins = it, offset = offset, total = total) }
+    }
+
+    override suspend fun search(searchTerm: String, limit: Int, offset: Int): CoinsPage {
+        checkLimitAndOffset(limit = limit, offset = offset)
+        val total = database.coinDaoQueries.countSearch(
+            symbol = searchTerm,
+            name = searchTerm
         )
+            .executeAsOneOrNull()
+            ?.toInt()
+            ?: 0
+
+        return checkSize(size = total, limit = limit, offset = offset) ?:
+            database.coinDaoQueries.search(
+                symbol = searchTerm,
+                name = searchTerm,
+                limit = limit.toLong(),
+                offset = offset.toLong()
+            )
+                .executeAsList()
+                .map(CoinDaoToDomainMapper::toDomain)
+                .let { CoinsPage(coins = it, offset = offset, total = total) }
+    }
 
     override suspend fun append(coins: List<PricedCoin>) {
         database.coinDaoQueries.transaction {

@@ -96,6 +96,7 @@ kotlin {
             implementation(libs.paging)
             implementation(libs.paging.compose)
             implementation(libs.sqldelight.coroutines)
+            implementation(libs.sqldelight.ext.paging)
             implementation(libs.sqldelight.primitive.adapters)
             implementation(libs.sqldelight.runtime)
         }

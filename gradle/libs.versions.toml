@@ -203,6 +203,7 @@ sqldelight-coroutines = { module = "app.cash.sqldelight:coroutines-extensions", 
 sqldelight-driver-core = { module = "app.cash.sqldelight:sqlite-driver", version.ref = "version-sqldelight" }
 sqldelight-driver-android = { module = "app.cash.sqldelight:android-driver", version.ref = "version-sqldelight" }
 sqldelight-driver-native = { module = "app.cash.sqldelight:native-driver", version.ref = "version-sqldelight" }
+sqldelight-ext-paging = { module = "app.cash.sqldelight:androidx-paging3-extensions", version.ref = "version-sqldelight" }
 sqldelight-primitive-adapters = { module = "app.cash.sqldelight:primitive-adapters", version.ref = "version-sqldelight" }
 sqldelight-runtime = { module = "app.cash.sqldelight:runtime", version.ref = "version-sqldelight" }
 square-okio = { module = "com.squareup.okio:okio", version.ref = "version-square-okio" }

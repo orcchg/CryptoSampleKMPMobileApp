@@ -23,7 +23,7 @@ internal class RealCoinsRemoteFacade(
         httpClientProvider.httpClient()
     }
 
-    override suspend fun coins(offset: Int, limit: Int): CoinsPage =
+    override suspend fun coins(limit: Int, offset: Int): CoinsPage =
         withContext(ioDispatcher()) {
             client.submitForm(
                 url = "${backendPreferences.baseUrl}/${Endpoints.COINS_ENDPOINT}",
