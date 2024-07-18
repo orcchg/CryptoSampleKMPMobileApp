@@ -11,3 +11,9 @@ enum class RepositoryQualifier {
     PERSISTENT_LOCAL,
     PERSISTENT_REAL
 }
+
+enum class ServiceLocatorQualifier {
+    IN_MEMORY,
+    REAL,
+    PERSISTENT_REAL
+}
