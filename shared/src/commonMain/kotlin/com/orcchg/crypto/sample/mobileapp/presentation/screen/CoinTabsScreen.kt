@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
 import com.orcchg.crypto.sample.mobileapp.di.ServiceLocator
+import com.orcchg.crypto.sample.mobileapp.domain.CoinListResults
 import com.orcchg.crypto.sample.mobileapp.presentation.theme.Colors
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.stringResource
@@ -91,7 +92,11 @@ fun CoinTabsScreen(
         ) {
             CoinListScreen(
                 serviceLocator = serviceLocator,
-                tab = Tabs.entries[it],
+                results =
+                    when (Tabs.entries[it]) {
+                        Tabs.ALL -> CoinListResults.ALL
+                        Tabs.FAVOURITES -> CoinListResults.FAVOURITE
+                    },
                 onItemClick = onCoinItemClick
             )
         }
