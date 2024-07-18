@@ -19,7 +19,7 @@ internal abstract class BaseCoinsPagingSource(
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, PricedCoin> =
         runCatching {
             val offset = params.key ?: 0
-            coinsProvider(offset, Constants.PAGE_LIMIT)
+            coinsProvider(Constants.PAGE_LIMIT, offset)
                 .let { p ->
                     LoadResult.Page(
                         data = p.coins,
