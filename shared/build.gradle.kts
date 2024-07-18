@@ -99,6 +99,7 @@ kotlin {
             implementation(libs.sqldelight.ext.paging)
             implementation(libs.sqldelight.primitive.adapters)
             implementation(libs.sqldelight.runtime)
+            implementation(libs.touchlab.stately.common)
         }
         commonTest.dependencies {
             implementation(libs.koin.test.kmm)
@@ -110,6 +111,8 @@ kotlin {
             implementation(libs.ktor.client.darwin)
             implementation(libs.paging.runtime.ios)
             implementation(libs.sqldelight.driver.native)
+            implementation(libs.touchlab.stately.isolate)
+            implementation(libs.touchlab.stately.iso.collections)
         }
         val jvmMain by getting {
             dependsOn(androidAndJvm)

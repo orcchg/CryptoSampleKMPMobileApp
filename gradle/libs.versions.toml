@@ -70,6 +70,7 @@ version-sqldelight = "2.0.2"
 version-square-okio = "3.9.0"
 version-threetenabp = "1.4.7"
 version-threetenbp = "1.6.9"
+version-touchlab-stately = "2.0.5"
 version-turbine = "1.1.0"
 runtimeDesktop = "1.6.8"
 
@@ -212,6 +213,9 @@ test-android-junit-ktx = { module = "androidx.test.ext:junit-ktx", version.ref =
 test-android-runner = { module = "androidx.test:runner", version.ref = "version-android-test-runner" }
 threetenabp-android = { module = "com.jakewharton.threetenabp:threetenabp", version.ref = "version-threetenabp" }
 threetenbp = { module = "org.threeten:threetenbp", version.ref = "version-threetenbp" }
+touchlab-stately-common = { module = "co.touchlab:stately-common", version.ref = "version-touchlab-stately" }
+touchlab-stately-isolate = { module = "co.touchlab:stately-isolate", version.ref = "version-touchlab-stately" }
+touchlab-stately-iso-collections = { module = "co.touchlab:stately-iso-collections", version.ref = "version-touchlab-stately" }
 turbine = { module = "app.cash.turbine:turbine", version.ref = "version-turbine" }
 androidx-runtime-desktop = { group = "androidx.compose.runtime", name = "runtime-desktop", version.ref = "runtimeDesktop" }
 
