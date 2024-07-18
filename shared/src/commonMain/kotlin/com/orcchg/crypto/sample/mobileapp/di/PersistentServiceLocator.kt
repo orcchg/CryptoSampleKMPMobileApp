@@ -13,6 +13,7 @@ import org.koin.core.qualifier.named
 internal class PersistentServiceLocator(
     private val koin: Koin
 ) : ServiceLocator {
+
     override fun cryptoRepository(results: CoinListResults): CryptoRepository =
         when (results) {
             CoinListResults.ALL ->

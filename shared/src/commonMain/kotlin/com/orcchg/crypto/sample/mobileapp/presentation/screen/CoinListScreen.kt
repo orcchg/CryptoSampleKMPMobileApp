@@ -23,9 +23,9 @@ import kotlinx.coroutines.launch
 @Composable
 fun CoinListScreen(
     serviceLocator: ServiceLocator,
-    results: CoinListResults,
+    resultsType: CoinListResults,
     viewModel: CoinListViewModel =
-        CoinListViewModelFactory(results).create(serviceLocator),
+        CoinListViewModelFactory(resultsType).create(serviceLocator),
     onItemClick: (coinIndex: Long) -> Unit = {}
 ) {
     val coins = viewModel.items.collectAsLazyPagingItems()

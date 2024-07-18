@@ -6,7 +6,7 @@ import com.orcchg.crypto.sample.mobileapp.domain.CoinListResults
 import com.orcchg.crypto.sample.mobileapp.domain.model.Coin
 
 expect class CoinListViewModelFactory(
-    results: CoinListResults,
+    resultsType: CoinListResults,
     searchPredicate: (coin: Coin) -> Boolean = { true }
 ) {
     @Composable

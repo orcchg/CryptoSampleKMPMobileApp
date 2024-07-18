@@ -14,6 +14,7 @@ internal class RealServiceLocator(
     private val koin: Koin,
     private val cacheQualifier: CacheQualifier
 ) : ServiceLocator {
+
     override fun cryptoRepository(results: CoinListResults): CryptoRepository =
         when (results) {
             CoinListResults.ALL ->

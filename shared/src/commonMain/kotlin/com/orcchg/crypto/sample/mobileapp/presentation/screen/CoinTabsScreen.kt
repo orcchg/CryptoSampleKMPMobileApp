@@ -92,7 +92,7 @@ fun CoinTabsScreen(
         ) {
             CoinListScreen(
                 serviceLocator = serviceLocator,
-                results =
+                resultsType =
                     when (Tabs.entries[it]) {
                         Tabs.ALL -> CoinListResults.ALL
                         Tabs.FAVOURITES -> CoinListResults.FAVOURITE
