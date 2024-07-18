@@ -1,4 +1,4 @@
-package com.orcchg.crypto.sample.mobileapp.data.source.local.backend
+package com.orcchg.crypto.sample.mobileapp.data.source.local
 
 import androidx.paging.PagingState
 import app.cash.paging.PagingSource
@@ -48,7 +48,7 @@ internal class PersistentCoinsPagingLocalSource(
         pagingSource.getRefreshKey(
             PagingState(
                 pages = state.pages.map { page ->
-                    with (page) {
+                    with(page) {
                         LoadResult.Page(
                             data = data.map(CoinDaoToDomainMapper::fromDomain),
                             prevKey = prevKey,
