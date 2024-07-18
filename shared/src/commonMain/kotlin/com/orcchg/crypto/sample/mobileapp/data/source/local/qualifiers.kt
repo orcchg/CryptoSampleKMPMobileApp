@@ -7,5 +7,7 @@ enum class CacheQualifier {
 
 enum class RepositoryQualifier {
     LOCAL,
-    REAL
+    REAL,
+    PERSISTENT_LOCAL,
+    PERSISTENT_REAL
 }

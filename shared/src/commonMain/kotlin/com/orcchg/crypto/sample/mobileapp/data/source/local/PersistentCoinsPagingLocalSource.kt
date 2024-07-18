@@ -4,6 +4,7 @@ import androidx.paging.PagingState
 import app.cash.paging.PagingSource
 import app.cash.sqldelight.paging3.QueryPagingSource
 import com.orcchg.crypto.sample.mobileapp.common.ioDispatcher
+import com.orcchg.crypto.sample.mobileapp.data.source.base.CoinPagingSource
 import com.orcchg.crypto.sample.mobileapp.data.source.local.model.mapper.CoinDaoToDomainMapper
 import com.orcchg.crypto.sample.mobileapp.database.CryptoSampleKMPDatabase
 import com.orcchg.crypto.sample.mobileapp.domain.model.PricedCoin
@@ -13,7 +14,7 @@ import com.orcchg.crypto.sample.mobileapp.domain.model.PricedCoin
  */
 internal class PersistentCoinsPagingLocalSource(
     private val database: CryptoSampleKMPDatabase
-) : PagingSource<Int, PricedCoin>() {
+) : CoinPagingSource() {
 
     private val pagingSource by lazy(LazyThreadSafetyMode.NONE) {
         with (database) {
