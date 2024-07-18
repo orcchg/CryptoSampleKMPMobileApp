@@ -2,14 +2,14 @@ package com.orcchg.crypto.sample.mobileapp.di
 
 import com.orcchg.crypto.sample.mobileapp.data.repository.RealCryptoRepository
 import com.orcchg.crypto.sample.mobileapp.data.source.local.CacheQualifier
-import com.orcchg.crypto.sample.mobileapp.data.source.local.CoinsPagingLocalSource
-import com.orcchg.crypto.sample.mobileapp.data.source.local.FavouritesCoinsPagingLocalSource
+import com.orcchg.crypto.sample.mobileapp.data.source.local.FavouritesPersistentCoinsPagingLocalSource
+import com.orcchg.crypto.sample.mobileapp.data.source.local.PersistentCoinsPagingLocalSource
 import com.orcchg.crypto.sample.mobileapp.domain.CoinListResults
 import com.orcchg.crypto.sample.mobileapp.domain.repository.CryptoRepository
 import org.koin.core.Koin
 import org.koin.core.qualifier.named
 
-internal class RealServiceLocator(
+internal class PersistentServiceLocator(
     private val koin: Koin,
     private val cacheQualifier: CacheQualifier
 ) : ServiceLocator {
@@ -21,8 +21,8 @@ internal class RealServiceLocator(
                     remote = koin.get(),
                     useAsLocalOnlyDataSource = false,
                     pagingSourceFactory = {
-                        CoinsPagingLocalSource(
-                            local = koin.get(qualifier = named(cacheQualifier))
+                        PersistentCoinsPagingLocalSource(
+                            database = koin.get()
                         )
                     }
                 )
@@ -32,8 +32,8 @@ internal class RealServiceLocator(
                     remote = koin.get(),
                     useAsLocalOnlyDataSource = true,
                     pagingSourceFactory = {
-                        FavouritesCoinsPagingLocalSource(
-                            local = koin.get(qualifier = named(cacheQualifier))
+                        FavouritesPersistentCoinsPagingLocalSource(
+                            database = koin.get()
                         )
                     }
                 )

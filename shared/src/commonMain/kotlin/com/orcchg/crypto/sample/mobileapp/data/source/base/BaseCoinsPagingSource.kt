@@ -8,6 +8,10 @@ import com.orcchg.crypto.sample.mobileapp.domain.model.PricedCoin
 
 typealias CoinPagingSource = PagingSource<Int, PricedCoin>
 
+/**
+ * Base [PagingSource] for a paginated list of [PricedCoin].
+ * Can be either remote or local.
+ */
 internal abstract class BaseCoinsPagingSource(
     private val coinsProvider: suspend (limit: Int, offset: Int) -> CoinsPage
 ) : CoinPagingSource() {

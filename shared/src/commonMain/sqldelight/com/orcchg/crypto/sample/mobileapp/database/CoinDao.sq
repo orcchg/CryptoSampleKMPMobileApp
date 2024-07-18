@@ -23,7 +23,7 @@ count:
 SELECT COUNT(*) FROM CoinDao;
 
 countFavourites:
-SELECT COUNT(*) FROM CoinDao WHERE isFavourite = :isFavourite;
+SELECT COUNT(*) FROM CoinDao WHERE isFavourite != 0;
 
 countSearch:
 SELECT COUNT(*) FROM CoinDao WHERE symbol LIKE ? OR name LIKE ?;
@@ -35,7 +35,7 @@ select:
 SELECT * FROM CoinDao LIMIT :limit OFFSET :offset;
 
 selectFavourites:
-SELECT * FROM CoinDao WHERE isFavourite = :isFavourite LIMIT :limit OFFSET :offset;
+SELECT * FROM CoinDao WHERE isFavourite != 0 LIMIT :limit OFFSET :offset;
 
 search:
 SELECT * FROM CoinDao WHERE symbol LIKE ? OR name LIKE ? LIMIT :limit OFFSET :offset;

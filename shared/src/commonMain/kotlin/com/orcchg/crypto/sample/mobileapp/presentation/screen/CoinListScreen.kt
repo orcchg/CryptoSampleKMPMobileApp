@@ -13,6 +13,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import app.cash.paging.compose.collectAsLazyPagingItems
 import com.orcchg.crypto.sample.mobileapp.di.ServiceLocator
+import com.orcchg.crypto.sample.mobileapp.domain.CoinListResults
 import com.orcchg.crypto.sample.mobileapp.presentation.viewmodel.CoinListViewModel
 import com.orcchg.crypto.sample.mobileapp.presentation.viewmodel.CoinListViewModelFactory
 import com.orcchg.crypto.sample.mobileapp.presentation.widget.CoinList
@@ -22,8 +23,9 @@ import kotlinx.coroutines.launch
 @Composable
 fun CoinListScreen(
     serviceLocator: ServiceLocator,
-    tab: Tabs,
-    viewModel: CoinListViewModel = CoinListViewModelFactory().create(serviceLocator),
+    results: CoinListResults,
+    viewModel: CoinListViewModel =
+        CoinListViewModelFactory(results).create(serviceLocator),
     onItemClick: (coinIndex: Long) -> Unit = {}
 ) {
     val coins = viewModel.items.collectAsLazyPagingItems()

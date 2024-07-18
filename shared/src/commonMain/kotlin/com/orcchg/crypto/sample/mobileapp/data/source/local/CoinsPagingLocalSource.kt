@@ -8,5 +8,9 @@ import com.orcchg.crypto.sample.mobileapp.domain.model.PricedCoin
  * Local only [PagingSource] for a paginated list of [PricedCoin].
  */
 internal class CoinsPagingLocalSource(
-    private val local: CoinsDatabaseFacade
+    local: CoinsDatabaseFacade
 ) : BaseCoinsPagingSource(local::coins)
+
+internal class FavouritesCoinsPagingLocalSource(
+    local: CoinsDatabaseFacade
+) : BaseCoinsPagingSource(local::favouriteCoins)

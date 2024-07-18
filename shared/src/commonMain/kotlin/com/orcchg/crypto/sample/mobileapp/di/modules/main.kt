@@ -1,7 +1,7 @@
 package com.orcchg.crypto.sample.mobileapp.di.modules
 
-import com.orcchg.crypto.sample.mobileapp.data.source.local.RepositoryQualifier
-import com.orcchg.crypto.sample.mobileapp.data.source.local.ServiceLocatorQualifier
+import com.orcchg.crypto.sample.mobileapp.data.source.local.CacheQualifier
+import com.orcchg.crypto.sample.mobileapp.di.PersistentServiceLocator
 import com.orcchg.crypto.sample.mobileapp.di.RealServiceLocator
 import com.orcchg.crypto.sample.mobileapp.di.ServiceLocator
 import org.koin.core.qualifier.named
@@ -9,32 +9,28 @@ import org.koin.dsl.module
 
 internal val serviceLocatorModule = module {
     includes(
-        cryptoRepositoryModule,
-        cryptoRepositoryPersistentModule
+        localDataSourceModule,
+        remoteDataSourceModule
     )
 
-    single<ServiceLocator>(named(ServiceLocatorQualifier.REAL)) {
-        RealServiceLocator(
-            cryptoRepository = get(qualifier = named(RepositoryQualifier.REAL)),
-            localCryptoRepository = get(qualifier = named(RepositoryQualifier.LOCAL))
-        )
+    single<ServiceLocator>(named(CacheQualifier.IN_MEMORY)) {
+        RealServiceLocator(koin = getKoin(), cacheQualifier = CacheQualifier.IN_MEMORY)
     }
-
-    single<ServiceLocator>(named(ServiceLocatorQualifier.PERSISTENT_REAL)) {
-        RealServiceLocator(
-            cryptoRepository = get(qualifier = named(RepositoryQualifier.PERSISTENT_REAL)),
-            localCryptoRepository = get(qualifier = named(RepositoryQualifier.PERSISTENT_LOCAL))
-        )
+    single<ServiceLocator>(named(CacheQualifier.PERSISTENT)) {
+        RealServiceLocator(koin = getKoin(), cacheQualifier = CacheQualifier.PERSISTENT)
     }
 }
 
-internal val serviceLocatorInMemoryModule = module {
-    includes(cryptoRepositoryInMemoryModule)
+internal val serviceLocatorPersistentModule = module {
+    includes(
+        localDataSourceModule,
+        remoteDataSourceModule
+    )
 
-    single<ServiceLocator>(named(ServiceLocatorQualifier.IN_MEMORY)) {
-        RealServiceLocator(
-            cryptoRepository = get(qualifier = named(RepositoryQualifier.REAL)),
-            localCryptoRepository = get(qualifier = named(RepositoryQualifier.LOCAL))
-        )
+    single<ServiceLocator>(named(CacheQualifier.IN_MEMORY)) {
+        PersistentServiceLocator(koin = getKoin(), cacheQualifier = CacheQualifier.IN_MEMORY)
+    }
+    single<ServiceLocator>(named(CacheQualifier.PERSISTENT)) {
+        PersistentServiceLocator(koin = getKoin(), cacheQualifier = CacheQualifier.PERSISTENT)
     }
 }

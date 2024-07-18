@@ -36,14 +36,13 @@ internal class RealCoinsDatabaseFacade(
 
     override suspend fun favouriteCoins(limit: Int, offset: Int): CoinsPage {
         checkLimitAndOffset(limit = limit, offset = offset)
-        val total = database.coinDaoQueries.countFavourites(isFavourite = true)
+        val total = database.coinDaoQueries.countFavourites()
             .executeAsOneOrNull()
             ?.toInt()
             ?: 0
 
         return checkSize(size = total, limit = limit, offset = offset) ?:
             database.coinDaoQueries.selectFavourites(
-                isFavourite = true,
                 limit = limit.toLong(),
                 offset = offset.toLong()
             )
