@@ -4,6 +4,7 @@ import com.orcchg.crypto.sample.mobileapp.data.repository.RealCryptoRepository
 import com.orcchg.crypto.sample.mobileapp.data.source.local.CacheQualifier
 import com.orcchg.crypto.sample.mobileapp.data.source.local.FavouritesPersistentCoinsPagingLocalSource
 import com.orcchg.crypto.sample.mobileapp.data.source.local.PersistentCoinsPagingLocalSource
+import com.orcchg.crypto.sample.mobileapp.data.source.local.SearchPersistentCoinsPagingLocalSource
 import com.orcchg.crypto.sample.mobileapp.domain.CoinListResults
 import com.orcchg.crypto.sample.mobileapp.domain.repository.CryptoRepository
 import org.koin.core.Koin
@@ -36,6 +37,17 @@ internal class PersistentServiceLocator(
                         )
                     }
                 )
-            CoinListResults.SEARCH -> TODO()
+            CoinListResults.SEARCH ->
+                RealCryptoRepository(
+                    local = koin.get(qualifier = named(CacheQualifier.PERSISTENT)),
+                    remote = koin.get(),
+                    useAsLocalOnlyDataSource = true,
+                    pagingSourceFactory = {
+                        SearchPersistentCoinsPagingLocalSource(
+                            database = koin.get(),
+                            searchTerm = searchTerm.value
+                        )
+                    }
+                )
         }
 }

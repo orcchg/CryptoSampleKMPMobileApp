@@ -14,3 +14,10 @@ internal class CoinsPagingLocalSource(
 internal class FavouritesCoinsPagingLocalSource(
     local: CoinsDatabaseFacade
 ) : BaseCoinsPagingSource(local::favouriteCoins)
+
+internal class SearchCoinsPagingLocalSource(
+    local: CoinsDatabaseFacade,
+    searchTerm: String
+) : BaseCoinsPagingSource({ limit, offset ->
+    local.search(searchTerm = searchTerm, limit = limit, offset = offset)
+})

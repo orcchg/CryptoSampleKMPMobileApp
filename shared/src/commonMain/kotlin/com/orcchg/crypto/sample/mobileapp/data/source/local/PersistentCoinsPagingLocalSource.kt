@@ -10,3 +10,18 @@ internal class PersistentCoinsPagingLocalSource(
 internal class FavouritesPersistentCoinsPagingLocalSource(
     database: CryptoSampleKMPDatabase,
 ) : BasePersistentCoinsPagingLocalSource(database, database.coinDaoQueries::selectFavourites)
+
+internal class SearchPersistentCoinsPagingLocalSource(
+    database: CryptoSampleKMPDatabase,
+    searchTerm: String
+) : BasePersistentCoinsPagingLocalSource(
+    database,
+    { limit, offset ->
+        database.coinDaoQueries.search(
+            symbol = searchTerm,
+            name = searchTerm,
+            limit = limit,
+            offset = offset
+        )
+    }
+)
