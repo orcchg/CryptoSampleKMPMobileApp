@@ -20,4 +20,7 @@ internal class RealCoinListViewModel(
         }
             .cachedIn(viewModelScope)
     }
+
+    override fun setFavourite(coinIndex: Long, isFavourite: Boolean) =
+        cryptoRepository.setFavourite(coinIndex, isFavourite)
 }

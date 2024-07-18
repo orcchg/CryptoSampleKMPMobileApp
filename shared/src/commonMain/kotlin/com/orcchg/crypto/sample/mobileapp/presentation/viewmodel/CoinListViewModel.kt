@@ -6,4 +6,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface CoinListViewModel {
     val items: Flow<PagingData<CoinVo>>
+
+    fun setFavourite(coinIndex: Long, isFavourite: Boolean)
 }

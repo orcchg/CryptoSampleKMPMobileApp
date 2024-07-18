@@ -6,4 +6,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface CryptoRepository {
     val coinsPages: Flow<PagingData<PricedCoin>>
+
+    fun setFavourite(coinIndex: Long, isFavourite: Boolean)
 }

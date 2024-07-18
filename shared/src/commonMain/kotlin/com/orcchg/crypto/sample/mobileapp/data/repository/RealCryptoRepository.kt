@@ -33,7 +33,11 @@ internal class RealCryptoRepository(
         )
     }
 
-    // TODO: set favourites
+    // TODO: set favourites statuses
     private val _coinsPages by lazy(LazyThreadSafetyMode.NONE) { pager.flow }
     override val coinsPages: Flow<PagingData<PricedCoin>> = _coinsPages
+
+    override fun setFavourite(coinIndex: Long, isFavourite: Boolean) {
+        TODO("Not yet implemented")
+    }
 }
