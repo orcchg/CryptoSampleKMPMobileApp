@@ -46,9 +46,7 @@ fun CoinListScreen(
             .fillMaxWidth()
             .pullRefresh(pullRefreshState),
         onItemClick = onItemClick,
-        onFavouriteClick = { coinIndex, isFavourite ->
-            viewModel.setFavourite(coinIndex, !isFavourite)
-        },
+        onFavouriteClick = viewModel::setFavourite,
         onLoadFinished = { isRefreshing = false }
     )
 }

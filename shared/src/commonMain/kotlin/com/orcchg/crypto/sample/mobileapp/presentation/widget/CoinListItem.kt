@@ -48,7 +48,7 @@ internal fun CoinListItem(
     modifier: Modifier = Modifier,
     positionInList: Int = 0,
     onClick: (coinIndex: Long) -> Unit = {},
-    onFavouriteClick: (coinIndex: Long) -> Unit = {}
+    onFavouriteClick: (coinIndex: Long, newIsFavourite: Boolean) -> Unit = { _, _ -> }
 ) {
     val color = if (positionInList % 2 == 0) {
         Colors.surfaceColor
@@ -104,11 +104,11 @@ internal fun CoinListItem(
                 Spacer(modifier = Modifier.width(2.dp))
 
                 var isFavourite by remember { mutableStateOf(coin.isFavourite) }
-                
+
                 IconButton(
                     onClick = {
                         isFavourite = !coin.isFavourite
-                        onFavouriteClick(coin.index)
+                        onFavouriteClick(coin.index, isFavourite)
                     },
                     modifier = Modifier.size(16.dp)
                 ) {
