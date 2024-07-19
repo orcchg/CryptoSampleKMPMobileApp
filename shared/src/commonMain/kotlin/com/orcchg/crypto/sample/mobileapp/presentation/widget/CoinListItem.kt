@@ -17,6 +17,10 @@ import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -98,11 +102,17 @@ internal fun CoinListItem(
                     style = MaterialTheme.typography.h6
                 )
                 Spacer(modifier = Modifier.width(2.dp))
+
+                var isFavourite by remember { mutableStateOf(coin.isFavourite) }
+                
                 IconButton(
-                    onClick = { onFavouriteClick(coin.index) },
+                    onClick = {
+                        isFavourite = !coin.isFavourite
+                        onFavouriteClick(coin.index)
+                    },
                     modifier = Modifier.size(16.dp)
                 ) {
-                    val iconResId = if (coin.isFavourite) {
+                    val iconResId = if (isFavourite || coin.isFavourite) {
                         Res.drawable.ic_fav_on
                     } else {
                         Res.drawable.ic_fav_off
