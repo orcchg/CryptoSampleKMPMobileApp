@@ -9,5 +9,6 @@ internal interface CoinsDatabaseFacade {
     suspend fun favouriteCoins(limit: Int, offset: Int): CoinsPage
     suspend fun search(searchTerm: String, limit: Int, offset: Int): CoinsPage
     suspend fun insert(coins: List<PricedCoin>)
+    suspend fun updateFavourite(coinIndex: Long, isFavourite: Boolean)
     suspend fun deleteAll()
 }

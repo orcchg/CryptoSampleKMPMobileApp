@@ -40,6 +40,15 @@ internal class InMemoryCoinsDatabaseFacade : CoinsDatabaseFacade {
         data.addAll(coins.map(CoinDaoToDomainMapper::fromDomain))
     }
 
+    override suspend fun updateFavourite(coinIndex: Long, isFavourite: Boolean) {
+        data.indexOfFirst { it.id == coinIndex }
+            .takeIf { it != -1 }
+            ?.let {
+                val newItem = data[it].copy(isFavourite = isFavourite)
+                data.set(it, newItem)
+            }
+    }
+
     override suspend fun deleteAll() {
         data.clear()
     }

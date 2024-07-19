@@ -57,5 +57,8 @@ INSERT OR REPLACE INTO CoinDao(
     createdAt
 ) VALUES ?;
 
+updateFavourite:
+UPDATE CoinDao SET isFavourite = :isFavourite WHERE id = :id;
+
 deleteAll:
 DELETE FROM CoinDao;
