@@ -73,7 +73,7 @@ internal class RealCoinsDatabaseFacade(
                 .let { CoinsPage(coins = it, offset = offset, total = total) }
     }
 
-    override suspend fun append(coins: List<PricedCoin>) {
+    override suspend fun insert(coins: List<PricedCoin>) {
         database.coinDaoQueries.transaction {
             coins.forEach { coin ->
                 database.coinDaoQueries.insert(

@@ -8,6 +8,6 @@ internal interface CoinsDatabaseFacade {
     suspend fun coins(limit: Int, offset: Int): CoinsPage
     suspend fun favouriteCoins(limit: Int, offset: Int): CoinsPage
     suspend fun search(searchTerm: String, limit: Int, offset: Int): CoinsPage
-    suspend fun append(coins: List<PricedCoin>)
+    suspend fun insert(coins: List<PricedCoin>)
     suspend fun deleteAll()
 }

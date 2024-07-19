@@ -32,7 +32,7 @@ internal class InMemoryCoinsDatabaseFacade : CoinsDatabaseFacade {
             limit = limit
         )
 
-    override suspend fun append(coins: List<PricedCoin>) {
+    override suspend fun insert(coins: List<PricedCoin>) {
         if (coins.isEmpty()) {
             return
         }
