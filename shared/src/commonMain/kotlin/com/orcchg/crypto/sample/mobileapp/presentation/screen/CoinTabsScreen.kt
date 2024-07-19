@@ -8,10 +8,10 @@ import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.ScrollableTabRow
-import androidx.compose.material.Tab
-import androidx.compose.material.Text
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.ScrollableTabRow
+import androidx.compose.material3.Tab
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.remember
@@ -68,14 +68,14 @@ fun CoinTabsScreen(
                                 color = Colors.textColor,
                                 fontSize = TextUnit(28f, TextUnitType.Sp),
                                 fontWeight = FontWeight.Bold,
-                                style = MaterialTheme.typography.h6
+                                style = MaterialTheme.typography.titleLarge
                             )
                         } else {
                             Text(
                                 text = tabText,
                                 color = Colors.disabledTextColor,
                                 fontWeight = FontWeight.Bold,
-                                style = MaterialTheme.typography.h6
+                                style = MaterialTheme.typography.titleLarge
                             )
                         }
                     }

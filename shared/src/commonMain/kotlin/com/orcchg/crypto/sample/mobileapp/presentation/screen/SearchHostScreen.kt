@@ -5,9 +5,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.material.Scaffold
-import androidx.compose.material.ScrollableTabRow
-import androidx.compose.material.TabRow
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -27,13 +25,13 @@ fun SearchHostScreen(
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         topBar = {
-            var searchInput by remember { mutableStateOf("") }
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
                     .wrapContentHeight(align = Alignment.CenterVertically)
                     .padding(20.dp)
             ) {
+                var searchInput by remember { mutableStateOf("") }
                 SearchField(
                     input = searchInput,
                     // TODO: isFocused

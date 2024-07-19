@@ -4,10 +4,10 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -32,7 +32,7 @@ fun OutlinedButton(
         Text(
             text = text,
             color = textColor,
-            style = MaterialTheme.typography.body1,
+            style = MaterialTheme.typography.bodyLarge,
         )
     }
 }
@@ -56,9 +56,9 @@ private fun OutlinedButtonHost(
             color = color,
         ),
         colors = ButtonDefaults.buttonColors(
-            backgroundColor = Colors.backgroundColor,
+            containerColor = Colors.backgroundColor,
             contentColor = Colors.textColor,
-            disabledBackgroundColor = Colors.backgroundColor,
+            disabledContainerColor = Colors.backgroundColor,
             disabledContentColor = Colors.disabledTextColor,
         ),
         content = content

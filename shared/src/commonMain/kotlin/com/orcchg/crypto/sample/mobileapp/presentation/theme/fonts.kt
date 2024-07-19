@@ -1,6 +1,6 @@
 package com.orcchg.crypto.sample.mobileapp.presentation.theme
 
-import androidx.compose.material.Typography
+import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
@@ -18,91 +18,105 @@ fun MontserratFontFamily() = FontFamily(
 @Composable
 fun AppTypography() =
     Typography(
-        h1 =
+        displayLarge =
         TextStyle(
             fontFamily = MontserratFontFamily(),
             fontWeight = FontWeight.Light,
             fontSize = 96.sp,
             letterSpacing = (-1.5).sp,
         ),
-        h2 =
+        displayMedium =
         TextStyle(
             fontFamily = MontserratFontFamily(),
             fontWeight = FontWeight.Light,
             fontSize = 60.sp,
             letterSpacing = (-0.5).sp,
         ),
-        h3 =
+        displaySmall =
         TextStyle(
             fontFamily = MontserratFontFamily(),
             fontWeight = FontWeight.Normal,
             fontSize = 48.sp,
             letterSpacing = 0.sp,
         ),
-        h4 =
+        headlineLarge =
+        TextStyle(
+            fontFamily = MontserratFontFamily(),
+            fontWeight = FontWeight.Normal,
+            fontSize = 40.sp,
+            letterSpacing = 0.25.sp,
+        ),
+        headlineMedium =
         TextStyle(
             fontFamily = MontserratFontFamily(),
             fontWeight = FontWeight.Normal,
             fontSize = 34.sp,
             letterSpacing = 0.25.sp,
         ),
-        h5 =
+        headlineSmall =
         TextStyle(
             fontFamily = MontserratFontFamily(),
             fontWeight = FontWeight.Normal,
             fontSize = 24.sp,
             letterSpacing = 0.sp,
         ),
-        h6 =
+        titleLarge =
         TextStyle(
             fontFamily = MontserratFontFamily(),
             fontWeight = FontWeight.Medium,
             fontSize = 18.sp,
             letterSpacing = 0.15.sp,
         ),
-        subtitle1 =
+        titleMedium =
         TextStyle(
             fontFamily = MontserratFontFamily(),
             fontWeight = FontWeight.Normal,
             fontSize = 16.sp,
             letterSpacing = 0.15.sp,
         ),
-        subtitle2 =
+        titleSmall =
         TextStyle(
             fontFamily = MontserratFontFamily(),
             fontWeight = FontWeight.Medium,
             fontSize = 14.sp,
             letterSpacing = 0.1.sp,
         ),
-        body1 =
+        bodyLarge =
         TextStyle(
             fontFamily = MontserratFontFamily(),
             fontWeight = FontWeight.Normal,
             fontSize = 16.sp,
             letterSpacing = 0.5.sp,
         ),
-        body2 =
+        bodyMedium =
         TextStyle(
             fontFamily = MontserratFontFamily(),
             fontWeight = FontWeight.Normal,
             fontSize = 14.sp,
             letterSpacing = 0.25.sp,
         ),
-        button =
-        TextStyle(
-            fontFamily = MontserratFontFamily(),
-            fontWeight = FontWeight.Medium,
-            fontSize = 14.sp,
-            letterSpacing = 1.25.sp,
-        ),
-        caption =
+        bodySmall =
         TextStyle(
             fontFamily = MontserratFontFamily(),
             fontWeight = FontWeight.Normal,
             fontSize = 12.sp,
             letterSpacing = 0.4.sp,
         ),
-        overline =
+        labelLarge =
+        TextStyle(
+            fontFamily = MontserratFontFamily(),
+            fontWeight = FontWeight.Medium,
+            fontSize = 14.sp,
+            letterSpacing = 1.25.sp,
+        ),
+        labelMedium =
+        TextStyle(
+            fontFamily = MontserratFontFamily(),
+            fontWeight = FontWeight.Normal,
+            fontSize = 12.sp,
+            letterSpacing = 1.5.sp,
+        ),
+        labelSmall =
         TextStyle(
             fontFamily = MontserratFontFamily(),
             fontWeight = FontWeight.Normal,
