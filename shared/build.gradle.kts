@@ -1,8 +1,3 @@
-@file:OptIn(ExperimentalWasmDsl::class)
-
-import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
-import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
-
 plugins {
     id("convention.android-lib-kmm")
     kotlin("plugin.serialization") version "2.0.0"
@@ -19,6 +14,7 @@ sqldelight {
             verifyMigrations = true
         }
     }
+    linkSqlite = true
 }
 
 kotlin {
@@ -45,7 +41,9 @@ kotlin {
     ).forEach {
         it.binaries.framework {
             baseName = "shared"
-            isStatic = true
+            isStatic = false
+            // https://github.com/cashapp/sqldelight/issues/1442
+            linkerOpts.add("-lsqlite3")
         }
     }
 
@@ -71,6 +69,7 @@ kotlin {
                 implementation(libs.androidx.activity.compose)
                 implementation(libs.androidx.lifecycle.viewmodel.compose)
                 implementation(libs.koin.android.kmm)
+                implementation(libs.kt.coroutines.android)
                 implementation(libs.ktor.client.okhttp)
                 implementation(libs.sqldelight.driver.android)
             }
@@ -92,6 +91,7 @@ kotlin {
             implementation(libs.bundles.ktor.all)
             implementation(libs.coil.compose)
             implementation(libs.koin.core.kmm)
+            implementation(libs.kt.coroutines.core)
             implementation(libs.kt.datetime)
             implementation(libs.kt.serialization)
             implementation(libs.paging)
@@ -119,6 +119,7 @@ kotlin {
             dependsOn(androidAndJvm)
             dependencies {
                 implementation(compose.desktop.currentOs)
+                implementation(libs.kt.coroutines.core.jvm)
                 implementation(libs.ktor.client.java)
                 implementation(libs.sqldelight.driver.core)
             }

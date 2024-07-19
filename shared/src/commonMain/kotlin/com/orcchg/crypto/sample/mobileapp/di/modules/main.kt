@@ -7,7 +7,7 @@ import com.orcchg.crypto.sample.mobileapp.di.ServiceLocator
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
-internal val serviceLocatorModule = module {
+val serviceLocatorModule = module {
     includes(
         localDataSourceModule,
         remoteDataSourceModule
@@ -21,7 +21,7 @@ internal val serviceLocatorModule = module {
     }
 }
 
-internal val serviceLocatorPersistentModule = module {
+val serviceLocatorPersistentModule = module {
     includes(
         localDataSourceModule,
         remoteDataSourceModule

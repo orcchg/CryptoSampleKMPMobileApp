@@ -158,7 +158,9 @@ koin-android-kmm = { module = "io.insert-koin:koin-android", version.ref = "vers
 koin-test = { module = "io.insert-koin:koin-test" }
 koin-test-kmm = { module = "io.insert-koin:koin-test", version.ref = "version-koin-kmm" }
 kt-core = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "version-kotlin-std" }
+kt-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "version-kotlin-coroutines" }
 kt-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "version-kotlin-coroutines" }
+kt-coroutines-core-jvm = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm", version.ref = "version-kotlin-coroutines" }
 kt-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "version-kotlin-coroutines" }
 kt-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "version-kotlin-datetime" }
 kt-gradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "version-kotlin-std" }

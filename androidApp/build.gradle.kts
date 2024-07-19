@@ -15,10 +15,14 @@ android {
 
 dependencies {
     implementation(projects.shared)
+
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui.core)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.activity.compose)
     debugImplementation(libs.androidx.compose.ui.tooling)
+
+    implementation(platform(libs.koin.bom))
+    implementation(libs.koin.android)
 }
