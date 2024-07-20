@@ -1,3 +1,5 @@
+import org.jetbrains.compose.desktop.application.dsl.TargetFormat
+
 plugins {
     id("convention.android-lib-kmm")
     kotlin("plugin.serialization") version "2.0.0"
@@ -120,6 +122,7 @@ kotlin {
             dependencies {
                 implementation(compose.desktop.currentOs)
                 implementation(libs.kt.coroutines.core.jvm)
+                implementation(libs.kt.coroutines.swing)
                 implementation(libs.ktor.client.java)
                 implementation(libs.sqldelight.driver.core)
             }
@@ -171,7 +174,7 @@ compose.desktop {
         mainClass = "com.orcchg.crypto.sample.mobileapp.MainKt"
 
         nativeDistributions {
-//            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
+            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "com.orcchg.crypto.sample.mobileapp"
             packageVersion = "1.0.0"
         }
