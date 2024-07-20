@@ -2,6 +2,7 @@ package com.orcchg.crypto.sample.mobileapp.data.source.base
 
 import androidx.paging.PagingState
 import app.cash.paging.PagingSource
+import co.touchlab.kermit.Logger
 import com.orcchg.crypto.sample.mobileapp.data.Constants
 import com.orcchg.crypto.sample.mobileapp.domain.model.CoinsPage
 import com.orcchg.crypto.sample.mobileapp.domain.model.PricedCoin
@@ -19,6 +20,7 @@ internal abstract class BaseCoinsPagingSource(
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, PricedCoin> =
         runCatching {
             val offset = params.key ?: 0
+            Logger.d { "paging source :: load :: params = $params" }
             coinsProvider(Constants.PAGE_LIMIT, offset)
                 .let { p ->
                     LoadResult.Page(
@@ -30,9 +32,7 @@ internal abstract class BaseCoinsPagingSource(
                     )
                 }
         }
-            .getOrElse { e ->
-                LoadResult.Error(e)
-            }
+            .getOrElse { e -> LoadResult.Error(e) }
 
     override fun getRefreshKey(state: PagingState<Int, PricedCoin>): Int? =
         (state.anchorPosition ?: 0)

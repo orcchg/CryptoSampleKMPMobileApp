@@ -1,5 +1,6 @@
 package com.orcchg.crypto.sample.mobileapp.data.source.local.backend
 
+import co.touchlab.kermit.Logger
 import com.orcchg.crypto.sample.mobileapp.data.Constants
 import com.orcchg.crypto.sample.mobileapp.data.source.local.CoinsDatabaseFacade
 import com.orcchg.crypto.sample.mobileapp.data.source.local.model.mapper.CoinDaoToDomainMapper
@@ -33,6 +34,7 @@ internal class InMemoryCoinsDatabaseFacade : CoinsDatabaseFacade {
         )
 
     override suspend fun insert(coins: List<PricedCoin>) {
+        Logger.d { "cache [${this::class.simpleName}] :: insert(${coins.size})" }
         if (coins.isEmpty()) {
             return
         }
@@ -41,6 +43,7 @@ internal class InMemoryCoinsDatabaseFacade : CoinsDatabaseFacade {
     }
 
     override suspend fun updateFavourite(coinIndex: Long, isFavourite: Boolean) {
+        Logger.d { "cache [${this::class.simpleName}] :: updateFavourite($coinIndex, $isFavourite)" }
         data.indexOfFirst { it.id == coinIndex }
             .takeIf { it != -1 }
             ?.let {
@@ -50,6 +53,7 @@ internal class InMemoryCoinsDatabaseFacade : CoinsDatabaseFacade {
     }
 
     override suspend fun deleteAll() {
+        Logger.d { "cache [${this::class.simpleName}] :: deleteAll" }
         data.clear()
     }
 

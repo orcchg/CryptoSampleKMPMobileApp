@@ -4,6 +4,7 @@ import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
 import androidx.paging.PagingState
 import app.cash.paging.RemoteMediator
+import co.touchlab.kermit.Logger
 import com.orcchg.crypto.sample.mobileapp.data.Constants
 import com.orcchg.crypto.sample.mobileapp.data.source.local.CoinsDatabaseFacade
 import com.orcchg.crypto.sample.mobileapp.domain.model.PricedCoin
@@ -30,6 +31,7 @@ internal class CoinsRemoteMediator(
                 LoadType.REFRESH -> 0
             }
 
+            Logger.d { "mediator :: load :: offset = $offset, nextOffset = $nextOffset" }
             remote.coins(offset = offset, limit = Constants.PAGE_LIMIT)
                 .also { local.insert(it.coins) } // update backing dataset
                 .let {
