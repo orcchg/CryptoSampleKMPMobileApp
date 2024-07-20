@@ -4,7 +4,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-class CoinEntity(
+data class CoinEntity(
     @SerialName("index") val index: Long,
     @SerialName("name") val name: String,
     @SerialName("symbol") val symbol: String,

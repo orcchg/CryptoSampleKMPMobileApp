@@ -1,6 +1,6 @@
 package com.orcchg.crypto.sample.mobileapp.domain.model
 
-class Coin(
+data class Coin(
     val index: Long,
     val name: String,
     val symbol: String,
