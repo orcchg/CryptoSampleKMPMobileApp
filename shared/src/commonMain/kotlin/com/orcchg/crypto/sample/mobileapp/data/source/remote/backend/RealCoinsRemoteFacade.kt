@@ -1,5 +1,6 @@
 package com.orcchg.crypto.sample.mobileapp.data.source.remote.backend
 
+import co.touchlab.kermit.Logger
 import com.orcchg.crypto.sample.mobileapp.common.ioDispatcher
 import com.orcchg.crypto.sample.mobileapp.data.source.remote.CoinsRemoteFacade
 import com.orcchg.crypto.sample.mobileapp.data.source.remote.http.DefaultHttpClientProvider
@@ -26,7 +27,8 @@ internal class RealCoinsRemoteFacade(
     override suspend fun coins(limit: Int, offset: Int): CoinsPage =
         withContext(ioDispatcher()) {
             client.submitForm(
-                url = "${backendPreferences.baseUrl}/${Endpoints.COINS_ENDPOINT}",
+                url = "${backendPreferences.baseUrl}/${Endpoints.COINS_ENDPOINT}"
+                    .also { Logger.d { "request: $it :: ($limit, $offset)" } },
                 formParameters = Parameters.build {
                     append(Endpoints.COINS_ENDPOINT_PARAM_LIMIT, "$limit")
                     append(Endpoints.COINS_ENDPOINT_PARAM_OFFSET, "$offset")
@@ -36,6 +38,7 @@ internal class RealCoinsRemoteFacade(
                 contentType(ContentType.Application.FormUrlEncoded)
             }
                 .body<CoinsPageEntity>()
+                .also { Logger.d { "response: $it" } }
                 .let(CoinsPageToDomainMapper::toDomain)
         }
 }

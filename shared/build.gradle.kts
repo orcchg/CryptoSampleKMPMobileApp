@@ -102,6 +102,7 @@ kotlin {
             implementation(libs.sqldelight.ext.paging)
             implementation(libs.sqldelight.primitive.adapters)
             implementation(libs.sqldelight.runtime)
+            implementation(libs.touchlab.kermit)
             implementation(libs.touchlab.stately.common)
         }
         commonTest.dependencies {
