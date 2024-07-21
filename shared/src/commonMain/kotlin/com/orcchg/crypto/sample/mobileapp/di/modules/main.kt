@@ -13,6 +13,9 @@ val serviceLocatorModule = module {
         remoteDataSourceModule
     )
 
+    single<ServiceLocator>(named(CacheQualifier.FAKE)) {
+        RealServiceLocator(koin = getKoin(), cacheQualifier = CacheQualifier.FAKE)
+    }
     single<ServiceLocator>(named(CacheQualifier.IN_MEMORY)) {
         RealServiceLocator(koin = getKoin(), cacheQualifier = CacheQualifier.IN_MEMORY)
     }

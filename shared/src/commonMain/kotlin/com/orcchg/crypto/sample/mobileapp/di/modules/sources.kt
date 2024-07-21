@@ -8,6 +8,7 @@ import com.orcchg.crypto.sample.mobileapp.data.source.local.backend.InMemoryCoin
 import com.orcchg.crypto.sample.mobileapp.data.source.local.backend.RealCoinsDatabaseFacade
 import com.orcchg.crypto.sample.mobileapp.data.source.local.backend.adapter.LongLongAdapter
 import com.orcchg.crypto.sample.mobileapp.data.source.local.backend.adapter.StringStringAdapter
+import com.orcchg.crypto.sample.mobileapp.data.source.local.backend.fake.FakeCoinsDatabaseFacade
 import com.orcchg.crypto.sample.mobileapp.data.source.remote.CoinsRemoteFacade
 import com.orcchg.crypto.sample.mobileapp.data.source.remote.backend.BackendPreferences
 import com.orcchg.crypto.sample.mobileapp.data.source.remote.backend.RealCoinsRemoteFacade
@@ -35,6 +36,12 @@ fun databaseModule(driverFactory: DriverFactory) = module {
 }
 
 internal val localDataSourceModule = module {
+    single<CoinsDatabaseFacade>(named(CacheQualifier.FAKE)) {
+        FakeCoinsDatabaseFacade(
+            facade = get(qualifier = named(CacheQualifier.IN_MEMORY))
+        )
+    }
+
     single<CoinsDatabaseFacade>(named(CacheQualifier.IN_MEMORY)) {
         InMemoryCoinsDatabaseFacade()
     }
