@@ -25,6 +25,9 @@ object Colors {
     val errorColor = Color(0xFFB00020)
 
     @Stable
+    val favColor = Color(0xFFFFCA1C)
+
+    @Stable
     val selectionColor = Color(0xFF4527A0)
 
     @Stable

@@ -31,7 +31,7 @@ fun SearchHostScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .wrapContentHeight(align = Alignment.CenterVertically)
-                    .padding(horizontal = 20.dp, vertical = 40.dp)
+                    .padding(horizontal = 16.dp, vertical = 40.dp)
                     .background(Color.Blue)
             ) {
                 var searchInput by remember { mutableStateOf("") }

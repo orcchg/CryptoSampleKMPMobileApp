@@ -4,6 +4,7 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.pager.HorizontalPager
@@ -48,8 +49,9 @@ fun CoinTabsScreen(
             selectedTabIndex = selectedTabIndex.value,
             modifier = Modifier
                 .wrapContentWidth()
+                .padding(bottom = 12.dp)
                 .requiredHeight(32.dp),
-            edgePadding = 0.dp
+            edgePadding = 4.dp
         ) {
             Tabs.entries.forEachIndexed { index, tab ->
                 Tab(
@@ -69,13 +71,16 @@ fun CoinTabsScreen(
                                 color = Colors.textColor,
                                 fontSize = TextUnit(28f, TextUnitType.Sp),
                                 fontWeight = FontWeight.Bold,
+                                lineHeight = TextUnit(32f, TextUnitType.Sp),
                                 style = MaterialTheme.typography.titleLarge
                             )
                         } else {
                             Text(
                                 text = tabText,
+                                modifier = Modifier.padding(top = 4.dp),
                                 color = Colors.disabledTextColor,
                                 fontWeight = FontWeight.Bold,
+                                lineHeight = TextUnit(32f, TextUnitType.Sp),
                                 style = MaterialTheme.typography.titleLarge
                             )
                         }

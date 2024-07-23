@@ -1,5 +1,6 @@
 package com.orcchg.crypto.sample.mobileapp.presentation.screen
 
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.pullrefresh.pullRefresh
@@ -43,7 +44,7 @@ fun CoinListScreen(
     CoinList(
         coins = coins,
         modifier = Modifier
-            .fillMaxWidth()
+            .fillMaxSize()
             .pullRefresh(pullRefreshState),
         onItemClick = onItemClick,
         onFavouriteClick = viewModel::setFavourite,

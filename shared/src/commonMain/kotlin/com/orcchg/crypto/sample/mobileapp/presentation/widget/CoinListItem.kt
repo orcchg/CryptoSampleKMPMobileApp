@@ -112,14 +112,15 @@ internal fun CoinListItem(
                     },
                     modifier = Modifier.size(16.dp)
                 ) {
-                    val iconResId = if (isFavourite || coin.isFavourite) {
-                        Res.drawable.ic_fav_on
+                    val (iconResId, iconTint) = if (isFavourite || coin.isFavourite) {
+                        Res.drawable.ic_fav_on to Colors.favColor
                     } else {
-                        Res.drawable.ic_fav_off
+                        Res.drawable.ic_fav_off to Colors.disabledTextColor
                     }
                     Icon(
                         imageVector = vectorResource(iconResId),
-                        contentDescription = null
+                        contentDescription = null,
+                        tint = iconTint,
                     )
                 }
             }

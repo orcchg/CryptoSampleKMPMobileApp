@@ -7,12 +7,28 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import cryptosamplekmpmobileapp.shared.generated.resources.Res
+import cryptosamplekmpmobileapp.shared.generated.resources.montserrat_black
+import cryptosamplekmpmobileapp.shared.generated.resources.montserrat_bold
+import cryptosamplekmpmobileapp.shared.generated.resources.montserrat_extrabold
+import cryptosamplekmpmobileapp.shared.generated.resources.montserrat_extralight
+import cryptosamplekmpmobileapp.shared.generated.resources.montserrat_light
+import cryptosamplekmpmobileapp.shared.generated.resources.montserrat_medium
 import cryptosamplekmpmobileapp.shared.generated.resources.montserrat_regular
+import cryptosamplekmpmobileapp.shared.generated.resources.montserrat_semibold
+import cryptosamplekmpmobileapp.shared.generated.resources.montserrat_thin
 import org.jetbrains.compose.resources.Font
 
 @Composable
 fun MontserratFontFamily() = FontFamily(
+    Font(Res.font.montserrat_thin, weight = FontWeight.Thin),
+    Font(Res.font.montserrat_extralight, weight = FontWeight.ExtraLight),
+    Font(Res.font.montserrat_light, weight = FontWeight.Light),
     Font(Res.font.montserrat_regular, weight = FontWeight.Normal),
+    Font(Res.font.montserrat_medium, weight = FontWeight.Medium),
+    Font(Res.font.montserrat_semibold, weight = FontWeight.SemiBold),
+    Font(Res.font.montserrat_bold, weight = FontWeight.Bold),
+    Font(Res.font.montserrat_extrabold, weight = FontWeight.ExtraBold),
+    Font(Res.font.montserrat_black, weight = FontWeight.Black)
 )
 
 @Composable
