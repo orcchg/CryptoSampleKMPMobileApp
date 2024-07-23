@@ -107,7 +107,7 @@ internal fun CoinListItem(
 
                 IconButton(
                     onClick = {
-                        isFavourite = !coin.isFavourite
+                        isFavourite = !isFavourite
                         onFavouriteClick(coin.index, isFavourite)
                     },
                     modifier = Modifier.size(16.dp)
