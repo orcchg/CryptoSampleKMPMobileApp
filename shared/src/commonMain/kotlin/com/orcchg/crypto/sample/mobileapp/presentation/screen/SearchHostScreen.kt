@@ -1,5 +1,6 @@
 package com.orcchg.crypto.sample.mobileapp.presentation.screen
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -13,6 +14,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.orcchg.crypto.sample.mobileapp.di.ServiceLocator
 import com.orcchg.crypto.sample.mobileapp.presentation.widget.SearchField
@@ -29,7 +31,8 @@ fun SearchHostScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .wrapContentHeight(align = Alignment.CenterVertically)
-                    .padding(20.dp)
+                    .padding(horizontal = 20.dp, vertical = 40.dp)
+                    .background(Color.Blue)
             ) {
                 var searchInput by remember { mutableStateOf("") }
                 SearchField(
@@ -46,9 +49,10 @@ fun SearchHostScreen(
                 )
             }
         }
-    ) {
+    ) { paddingValues ->
         CoinTabsScreen(
             serviceLocator = serviceLocator,
+            modifier = Modifier.padding(paddingValues),
             onCoinItemClick = onCoinItemClick
         )
     }

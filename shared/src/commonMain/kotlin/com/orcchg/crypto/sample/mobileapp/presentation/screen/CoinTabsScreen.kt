@@ -32,10 +32,11 @@ import org.jetbrains.compose.resources.stringResource
 @Composable
 fun CoinTabsScreen(
     serviceLocator: ServiceLocator,
+    modifier: Modifier = Modifier,
     onCoinItemClick: (coinIndex: Long) -> Unit = {}
 ) {
     Column(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = modifier.fillMaxWidth(),
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {

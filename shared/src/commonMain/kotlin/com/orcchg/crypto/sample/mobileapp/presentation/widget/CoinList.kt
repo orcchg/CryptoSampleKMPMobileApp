@@ -24,9 +24,12 @@ fun CoinList(
     onFavouriteClick: (coinIndex: Long, newIsFavourite: Boolean) -> Unit = { _, _ -> },
     onLoadFinished: () -> Unit = {}
 ) {
-    when (coins.loadState.refresh) {
+    when (val state = coins.loadState.refresh) {
         LoadStateLoading -> LoadingState()
-        is LoadStateError -> ErrorState(onRetryPressed = coins::retry)
+        is LoadStateError -> ErrorState(
+            error = state.error,
+            onRetryPressed = coins::retry
+        )
         is LoadStateNotLoading ->
             Box(
                 modifier = modifier,

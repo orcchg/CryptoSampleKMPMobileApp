@@ -33,6 +33,7 @@ import org.jetbrains.compose.resources.stringResource
 @Composable
 fun ErrorState(
     modifier: Modifier = Modifier,
+    error: Throwable? = null,
     onRetryPressed: () -> Unit = {},
     content: @Composable BoxScope.() -> Unit = {},
 ) {
@@ -51,7 +52,7 @@ fun ErrorState(
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Text(
-                text = stringResource(Res.string.label_error),
+                text = error?.message ?: stringResource(Res.string.label_error),
                 color = Colors.errorColor,
                 textAlign = TextAlign.Center,
                 style = MaterialTheme.typography.titleLarge,

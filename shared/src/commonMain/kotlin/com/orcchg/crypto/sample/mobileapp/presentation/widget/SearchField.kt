@@ -6,12 +6,12 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -60,9 +60,10 @@ fun SearchField(
                 shape = RoundedCornerShape(40.dp)
             )
             .padding(vertical = 12.dp, horizontal = 16.dp),
+        contentAlignment = Alignment.BottomCenter
     ) {
         Row(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier.matchParentSize(),
             verticalAlignment = Alignment.CenterVertically
         ) {
             IconButton(
@@ -76,23 +77,23 @@ fun SearchField(
                 )
             }
             Spacer(modifier = Modifier.width(8.dp))
-            OutlinedTextField(
+            BasicTextField(
                 value = input,
                 onValueChange = onSearchInput,
                 modifier = Modifier
                     .fillMaxHeight()
                     .weight(1.0f),
                 textStyle = MaterialTheme.typography.titleMedium,
-                placeholder = {
-                    Text(
-                        text = stringResource(Res.string.label_search_hint),
-                        color = Colors.textColor,
-                        fontWeight = FontWeight.SemiBold,
-                        style = MaterialTheme.typography.titleMedium
-                    )
-                },
+//                placeholder = {
+//                    Text(
+//                        text = stringResource(Res.string.label_search_hint),
+//                        color = Colors.textColor,
+//                        fontWeight = FontWeight.SemiBold,
+//                        style = MaterialTheme.typography.titleMedium
+//                    )
+//                },
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
-                singleLine = true
+                singleLine = true,
             )
             Spacer(modifier = Modifier.width(8.dp))
             IconButton(
